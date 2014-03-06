@@ -8,10 +8,10 @@ Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików
 
 
 2. Zapis/Odczyt plików
-- zapis danych lokalnie do polaczenia
-- zapis historii lokalnie
-- odczyt przesłanych plików graficznych
-- 
+- zapis/odczyt danych lokalnie do polaczenia
+- zapis/odczyt historii lokalnie
+- zapis/odczyt przesłanych plików graficznych
+- zapis/odczyt ustawień programu ( uruchamianie z systemem )
 
 
 3. Współbierzność
