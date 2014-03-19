@@ -5,7 +5,7 @@ Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików
 - okno kontaktów
 - okno rejestracji
 - okno logowania
-
+- okno aboutbox
 
 2. Zapis/Odczyt plików
 - zapis/odczyt danych lokalnie do polaczenia
@@ -31,7 +31,7 @@ Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików
 5. Komunikacja sieciowa
 - zastosowanie protokołu TCP lub UDP
 - ??? sposob na przesylanie pliku
-- 
+- przesyłanie wiadomości miedzy uzytkownikami przez protokół TCP
 - 
 
 
