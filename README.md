@@ -23,7 +23,7 @@ Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików
 
 4. Bazy Danych
 - zapis danych uzytkowników
-- przy zalogowaniu zmiana wpisu bazy danych na "zalogowany"
+- logowanie
 - sprawdzanie listy zalogowanych uzytkowników
 - zapis listy "znajomych"
 
