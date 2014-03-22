@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /*
  * createuser.java
@@ -12,10 +13,10 @@ import java.sql.PreparedStatement;
  *
  * @author  __USER__
  */
-public class createuser extends javax.swing.JFrame {
+public class CreateUser extends javax.swing.JFrame {
 
 	/** Creates new form createuser */
-	public createuser() {
+	public CreateUser() {
 		initComponents();
 	}
 
@@ -142,42 +143,29 @@ public class createuser extends javax.swing.JFrame {
 	}// </editor-fold>
 	//GEN-END:initComponents
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-		String url = "jdbc:mysql://db4free.net:3306/";
-		String driver = "com.mysql.jdbc.Driver";
-		String userName = "komunikator";
-		String password = "pawel01";
+	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) 
+	{		
 		String loginTB = jTextField1.getText();
 		String passwordTB = jTextField2.getText();
-
-		try {
-			Class.forName(driver).newInstance();
-			Connection conn = DriverManager.getConnection(url, userName,
-					password);
-			jLabel1.setText("Connected");
-
-			String query = " insert into komunikatorpsz.User (Login, Password, LoggedIn)"
-					+ " values (?, ?, ?)";
-			PreparedStatement preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setString(1, loginTB);
-			preparedStmt.setString(2, passwordTB);
-			preparedStmt.setInt(3, 0);
-
-			preparedStmt.execute();
-
-			conn.close();
-		} catch (Exception e) {
-
-			jLabel1.setText("Not Connected");
-			e.printStackTrace();
-		}
+		
+			Connection conn = DbController.dbconnect();
+			if(DbController.createuser(conn, loginTB, passwordTB))
+				jLabel1.setText("User Add Success");
+			else
+				jLabel1.setText("User Add Failed");
+			
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	@SuppressWarnings("deprecation")
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-		this.show(false);
-		Main mainwindow = new Main();
-		mainwindow.show(true);
+		WindowController.showloginwindow();
+		WindowController.closeusercreatorwindow();
 
 	}
 
@@ -187,7 +175,7 @@ public class createuser extends javax.swing.JFrame {
 	public static void main(String args[]) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new createuser().setVisible(true);
+				new CreateUser().setVisible(true);
 			}
 		});
 	}

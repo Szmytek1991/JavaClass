@@ -9,10 +9,10 @@
  * @author  __USER__
  */
 public class AboutBox extends javax.swing.JFrame {
-	String m_login;
+	String m_loggedas;
 	/** Creates new form AboutBox */
 	public AboutBox(String Login) {
-		m_login=Login;
+		m_loggedas=Login;
 		initComponents();
 	}
 
@@ -24,7 +24,7 @@ public class AboutBox extends javax.swing.JFrame {
 	//GEN-BEGIN:initComponents
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">
 	private void initComponents() {
-		this.setTitle("Logged as : " + m_login);
+		this.setTitle("Logged as : " + m_loggedas);
 
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jTextArea1 = new javax.swing.JTextArea();
@@ -76,10 +76,8 @@ public class AboutBox extends javax.swing.JFrame {
 	}
 
 	private void formWindowClosing(java.awt.event.WindowEvent evt) {
-		this.dispose();
-		mainwindow main = new mainwindow(m_login);
-		main.show(true);
-		// TODO add your handling code here:
+		WindowController.showmainwindow(m_loggedas);
+		WindowController.closeaboutbox();
 	}
 
 	//GEN-BEGIN:variables

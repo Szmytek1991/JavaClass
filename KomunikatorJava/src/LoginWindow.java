@@ -4,12 +4,13 @@
  *
  * @author  __USER__
  */
+import java.awt.Window;
 import java.sql.*;
 
-public class Main extends javax.swing.JFrame {
+public class LoginWindow extends javax.swing.JFrame {
 
 	/** Creates new form Main */
-	public Main() {
+	public LoginWindow() {
 		initComponents();
 	}
 
@@ -146,9 +147,8 @@ public class Main extends javax.swing.JFrame {
 
 	@SuppressWarnings("deprecation")
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-		createuser createform = new createuser();
-		createform.show(true);
-		this.dispose();
+		WindowController.showusercreatorwindow();
+		WindowController.closeloginwindow();
 	}
 
 	private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,55 +156,32 @@ public class Main extends javax.swing.JFrame {
 	}
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-		String url = "jdbc:mysql://db4free.net:3306/";
-		String driver = "com.mysql.jdbc.Driver";
-		String userName = "komunikator";
-		String password = "pawel01";
-		String login1 = "";
-		String password1 = "";
+		
 		String loginTB = jTextField1.getText();
 		String passwordTB = jTextField2.getText();
-		ResultSet resultSet = null;
-		Statement statement = null;
-		boolean authentication = false;
 
-		try {
+			Connection conn = DbController.dbconnect();
 			
-			Class.forName(driver).newInstance();
-			Connection conn = DriverManager.getConnection(url, userName,
-					password);
-			jLabel1.setText("Connected");
-			statement = conn.createStatement();
-			resultSet = statement
-					.executeQuery("select * from komunikatorpsz.User");
-			while (resultSet.next()) {
-				login1 = resultSet.getString("Login");
-
-				password1 = resultSet.getString("Password");
-
-				if (login1.equals(loginTB))
-					if (password1.equals(passwordTB)) {
-						authentication = true;
-						break;
-					} else
-						authentication = false;
-
-			}
-			if (authentication)
+			if(DbController.login(conn, loginTB, passwordTB))
 			{
-				jLabel1.setText("Logged In");
-				this.show(false);
-				mainwindow main = new mainwindow(loginTB);
-				main.show(true);
+				WindowController.showmainwindow(loginTB);
+				WindowController.closeloginwindow();
 			}
 			else
+			{
 				jLabel1.setText("Wrong Login or Password");
-
-			conn.close();
-		} catch (Exception e) {
-			jLabel1.setText("Not Connected");
-			e.printStackTrace();
-		}
+			}
+			
+			
+			
+			
+			
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		// TODO add your handling code here:
 	}
@@ -212,13 +189,6 @@ public class Main extends javax.swing.JFrame {
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String args[]) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new Main().setVisible(true);
-			}
-		});
-	}
 
 	//GEN-BEGIN:variables
 	// Variables declaration - do not modify

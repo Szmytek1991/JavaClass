@@ -8,11 +8,11 @@
  *
  * @author  __USER__
  */
-public class mainwindow extends javax.swing.JFrame {
-	String m_login;
+public class MainWindow extends javax.swing.JFrame {
+	String m_loggedas;
 	/** Creates new form mainwindow */
-	public mainwindow(String Login) {
-		m_login= Login;
+	public MainWindow(String loggedas) {
+		m_loggedas= loggedas;
 		initComponents();
 	}
 
@@ -24,7 +24,7 @@ public class mainwindow extends javax.swing.JFrame {
 	//GEN-BEGIN:initComponents
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">
 	private void initComponents() {
-		this.setTitle("Logged as : " + m_login);
+		this.setTitle("Logged as : " + m_loggedas);
 		desktopPane = new javax.swing.JDesktopPane();
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
@@ -94,15 +94,13 @@ public class mainwindow extends javax.swing.JFrame {
 	//GEN-END:initComponents
 
 	private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
-		this.dispose();
-		Main mainw = new Main();
-		mainw.show(true);
+		WindowController.showloginwindow();
+		WindowController.closemainwindow();
 	}
 
 	private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-		this.dispose();
-		AboutBox aboutbox = new AboutBox(m_login);
-		aboutbox.show(true);
+		WindowController.showaboutbox(m_loggedas);
+		WindowController.closemainwindow();
 	}
 
 	private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {
