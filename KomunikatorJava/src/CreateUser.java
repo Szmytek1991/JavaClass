@@ -1,6 +1,4 @@
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /*
@@ -13,6 +11,7 @@ import java.sql.SQLException;
  *
  * @author  __USER__
  */
+@SuppressWarnings("serial")
 public class CreateUser extends javax.swing.JFrame {
 
 	/** Creates new form createuser */
@@ -162,7 +161,6 @@ public class CreateUser extends javax.swing.JFrame {
 			}
 	}
 
-	@SuppressWarnings("deprecation")
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
 		WindowController.showloginwindow();
 		WindowController.closeusercreatorwindow();

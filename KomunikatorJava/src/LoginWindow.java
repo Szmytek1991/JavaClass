@@ -4,9 +4,9 @@
  *
  * @author  __USER__
  */
-import java.awt.Window;
 import java.sql.*;
 
+@SuppressWarnings("serial")
 public class LoginWindow extends javax.swing.JFrame {
 
 	/** Creates new form Main */
@@ -145,7 +145,6 @@ public class LoginWindow extends javax.swing.JFrame {
 	}// </editor-fold>
 	//GEN-END:initComponents
 
-	@SuppressWarnings("deprecation")
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
 		WindowController.showusercreatorwindow();
 		WindowController.closeloginwindow();

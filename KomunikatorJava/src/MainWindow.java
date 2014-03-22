@@ -1,18 +1,12 @@
-/*
- * mainwindow.java
- *
- * Created on __DATE__, __TIME__
- */
+import javax.swing.DebugGraphics;
 
-/**
- *
- * @author  __USER__
- */
+@SuppressWarnings("serial")
 public class MainWindow extends javax.swing.JFrame {
 	String m_loggedas;
+
 	/** Creates new form mainwindow */
 	public MainWindow(String loggedas) {
-		m_loggedas= loggedas;
+		m_loggedas = loggedas;
 		initComponents();
 	}
 
@@ -24,8 +18,10 @@ public class MainWindow extends javax.swing.JFrame {
 	//GEN-BEGIN:initComponents
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">
 	private void initComponents() {
-		this.setTitle("Logged as : " + m_loggedas);
+
 		desktopPane = new javax.swing.JDesktopPane();
+		jScrollPane1 = new javax.swing.JScrollPane();
+		jList1 = new javax.swing.JList();
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
 		exitMenuItem = new javax.swing.JMenuItem();
@@ -36,6 +32,23 @@ public class MainWindow extends javax.swing.JFrame {
 		setDefaultCloseOperation(3);
 
 		desktopPane.setName("");
+
+		jList1.setModel(new javax.swing.AbstractListModel() {
+			String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4",
+					"Item 5" };
+
+			public int getSize() {
+				return strings.length;
+			}
+
+			public Object getElementAt(int i) {
+				return strings[i];
+			}
+		});
+		jScrollPane1.setViewportView(jList1);
+
+		jScrollPane1.setBounds(40, 40, 330, 187);
+		desktopPane.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
 		fileMenu.setText("File");
 
@@ -53,7 +66,6 @@ public class MainWindow extends javax.swing.JFrame {
 				jMenuItem1ActionPerformed(evt);
 			}
 		});
-
 		fileMenu.add(jMenuItem1);
 
 		menuBar.add(fileMenu);
@@ -94,6 +106,7 @@ public class MainWindow extends javax.swing.JFrame {
 	//GEN-END:initComponents
 
 	private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
+		DbController.logout(m_loggedas);
 		WindowController.showloginwindow();
 		WindowController.closemainwindow();
 	}
@@ -108,9 +121,9 @@ public class MainWindow extends javax.swing.JFrame {
 	}
 
 	private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+		DbController.logout(m_loggedas);
 		System.exit(0);
 	}//GEN-LAST:event_exitMenuItemActionPerformed
-
 
 	//GEN-BEGIN:variables
 	// Variables declaration - do not modify
@@ -119,7 +132,9 @@ public class MainWindow extends javax.swing.JFrame {
 	private javax.swing.JMenuItem exitMenuItem;
 	private javax.swing.JMenu fileMenu;
 	private javax.swing.JMenu helpMenu;
+	private javax.swing.JList jList1;
 	private javax.swing.JMenuItem jMenuItem1;
+	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JMenuBar menuBar;
 	// End of variables declaration//GEN-END:variables
 

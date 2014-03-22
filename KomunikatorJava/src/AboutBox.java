@@ -8,6 +8,7 @@
  *
  * @author  __USER__
  */
+@SuppressWarnings("serial")
 public class AboutBox extends javax.swing.JFrame {
 	String m_loggedas;
 	/** Creates new form AboutBox */

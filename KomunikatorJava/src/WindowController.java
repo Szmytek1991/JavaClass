@@ -17,21 +17,25 @@ public class WindowController {
 
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static void showloginwindow()
 	{
 		loginwindow = new LoginWindow();
 		loginwindow.show(true);
 	}
+	@SuppressWarnings("deprecation")
 	public static void showusercreatorwindow()
 	{
 		createuser = new CreateUser();
 		createuser.show(true);
 	}
+	@SuppressWarnings("deprecation")
 	public static void showmainwindow(String loggedas)
 	{
 		mainwindow = new MainWindow(loggedas);
 		mainwindow.show(true);
 	}
+	@SuppressWarnings("deprecation")
 	public static void showaboutbox(String loggedas)
 	{
 		aboutbox = new AboutBox(loggedas);

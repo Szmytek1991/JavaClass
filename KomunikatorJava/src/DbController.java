@@ -30,6 +30,7 @@ public class DbController
 				ex.printStackTrace();
 				return false;
 			}
+			
 		}
 		public static Connection dbconnect ()
 		{
@@ -60,7 +61,7 @@ public class DbController
 			
 			try {
 				statement = conn.createStatement();
-			resultSet = statement
+				resultSet = statement
 					.executeQuery("select * from komunikatorpsz.User");
 			while (resultSet.next()) {
 				dbLogin = resultSet.getString("Login");
@@ -70,7 +71,23 @@ public class DbController
 				if (dbLogin.equals(login))
 					if (dbPassword.equals(password)) {
 						authentication = true;
-						break;
+						
+						String query = "UPDATE komunikatorpsz.User " +
+				                   "SET LoggedIn = 1 WHERE Login in (?)";
+						PreparedStatement preparedStmt;
+						try
+						{
+							preparedStmt = conn.prepareStatement(query);
+							preparedStmt.setString(1, login);
+
+							preparedStmt.execute();
+							return true;
+						}
+						catch (Exception ex)
+						{
+							ex.printStackTrace();
+							return false;
+						}
 					} else
 						authentication = false;
 				
@@ -84,4 +101,31 @@ public class DbController
 			return authentication;
 
 		}
+		public static boolean logout(String login)
+		{
+			Connection conn = dbconnect();
+
+			String query = "UPDATE komunikatorpsz.User " +
+	                   "SET LoggedIn = 0 WHERE Login in (?)";
+			PreparedStatement preparedStmt;
+			try
+			{
+				preparedStmt = conn.prepareStatement(query);
+				preparedStmt.setString(1, login);
+
+				preparedStmt.execute();
+				conn.close();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+				return false;
+			}
+		}
+		public static boolean getfriends()
+		{
+			return false;
+		}
+		
 }
