@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 	
 public class DbController 
 {
@@ -12,7 +14,7 @@ public class DbController
 		public static boolean createuser (Connection conn, String login, String password)
 		{
 
-			String query = " insert into komunikatorpsz.User (Login, Password, LoggedIn)"
+			String query = " insert into 8306_traffii1.User (Login, Password, LoggedIn)"
 					+ " values (?, ?, ?)";
 			PreparedStatement preparedStmt;
 			try
@@ -34,10 +36,10 @@ public class DbController
 		}
 		public static Connection dbconnect ()
 		{
-			String url = "jdbc:mysql://db4free.net:3306/";
+			String url = "jdbc:mysql://mysql3.webio.pl:3306/";
 			String driver = "com.mysql.jdbc.Driver";
-			String userName = "komunikator";
-			String password = "pawel01";
+			String userName = "8306_traffii";
+			String password = "terra2002!";
 			
 			try
 			{
@@ -62,7 +64,7 @@ public class DbController
 			try {
 				statement = conn.createStatement();
 				resultSet = statement
-					.executeQuery("select * from komunikatorpsz.User");
+					.executeQuery("select * from 8306_traffii1.User");
 			while (resultSet.next()) {
 				dbLogin = resultSet.getString("Login");
 
@@ -72,7 +74,7 @@ public class DbController
 					if (dbPassword.equals(password)) {
 						authentication = true;
 						
-						String query = "UPDATE komunikatorpsz.User " +
+						String query = "UPDATE 8306_traffii1.User " +
 				                   "SET LoggedIn = 1 WHERE Login in (?)";
 						PreparedStatement preparedStmt;
 						try
@@ -105,7 +107,7 @@ public class DbController
 		{
 			Connection conn = dbconnect();
 
-			String query = "UPDATE komunikatorpsz.User " +
+			String query = "UPDATE 8306_traffii1.User " +
 	                   "SET LoggedIn = 0 WHERE Login in (?)";
 			PreparedStatement preparedStmt;
 			try
@@ -123,9 +125,56 @@ public class DbController
 				return false;
 			}
 		}
-		public static boolean getfriends()
+		public static List<String> getfriends(Connection conn, String login)
 		{
-			return false;
+			List<String> result = new ArrayList<String>();
+			int userid=0;
+			int id;
+			String query1 = "select `ID` from 8306_traffii1.user Where `Login` = (?)";
+			String query2 = "select `friendid` from 8306_traffii1.friends Where `userid` = (?)";
+			String query3 = "select `Login` from 8306_traffii1.user Where `ID` = (?)";
+			PreparedStatement preparedStmt1;
+			PreparedStatement preparedStmt2;
+			PreparedStatement preparedStmt3;
+			
+			ResultSet resultSet1 = null;
+			ResultSet resultSet2 = null;
+			ResultSet resultSet3 = null;
+			
+			try {
+				preparedStmt1 = conn.prepareStatement(query1);
+				preparedStmt1.setString(1, "test1");
+				resultSet1=preparedStmt1.executeQuery();
+				while(resultSet1.next())
+				{
+				userid = resultSet1.getInt("ID");
+				System.out.println(userid);
+				}
+				userid = 1;
+				preparedStmt2 = conn.prepareStatement(query2);
+				preparedStmt2.setInt(1, userid);
+				resultSet2=preparedStmt2.executeQuery();
+				while(resultSet2.next())
+				{
+					id = resultSet2.getInt("friendid");
+					System.out.println(id);
+					preparedStmt3 = conn.prepareStatement(query3);
+					preparedStmt3.setInt(1, id);
+					resultSet3=preparedStmt3.executeQuery();
+					while(resultSet3.next())
+					{
+					System.out.println(resultSet3.getString("Login"));
+					result.add(resultSet3.getString("Login"));
+					}
+				}
+				return result;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+			
+			
 		}
 		
 }

@@ -1,13 +1,37 @@
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.DebugGraphics;
+
+import com.mysql.jdbc.Connection;
 
 @SuppressWarnings("serial")
 public class MainWindow extends javax.swing.JFrame {
 	String m_loggedas;
+	List<String> friends = new ArrayList<String>();
 
 	/** Creates new form mainwindow */
 	public MainWindow(String loggedas) {
+
 		m_loggedas = loggedas;
+		java.sql.Connection conn = DbController.dbconnect();
+		friends = DbController.getfriends(conn, loggedas);
+
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		initComponents();
+		int length;
+		length = friends.size();
+		for(int i=0;i<length;i++)
+		{
+			System.out.println(friends.get(i));
+			list1.addItem("test");
+		}
 	}
 
 	/** This method is called from within the constructor to
@@ -19,90 +43,71 @@ public class MainWindow extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">
 	private void initComponents() {
 
-		desktopPane = new javax.swing.JDesktopPane();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		jList1 = new javax.swing.JList();
-		menuBar = new javax.swing.JMenuBar();
-		fileMenu = new javax.swing.JMenu();
-		exitMenuItem = new javax.swing.JMenuItem();
-		jMenuItem1 = new javax.swing.JMenuItem();
-		helpMenu = new javax.swing.JMenu();
-		aboutMenuItem = new javax.swing.JMenuItem();
+desktopPane = new javax.swing.JDesktopPane();
+menuBar = new javax.swing.JMenuBar();
+fileMenu = new javax.swing.JMenu();
+exitMenuItem = new javax.swing.JMenuItem();
+jMenuItem1 = new javax.swing.JMenuItem();
+helpMenu = new javax.swing.JMenu();
+aboutMenuItem = new javax.swing.JMenuItem();
 
-		setDefaultCloseOperation(3);
+setDefaultCloseOperation(3);
 
-		desktopPane.setName("");
+desktopPane.setName("");
 
-		jList1.setModel(new javax.swing.AbstractListModel() {
-			String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4",
-					"Item 5" };
+fileMenu.setText("File");
 
-			public int getSize() {
-				return strings.length;
-			}
+exitMenuItem.setText("Exit");
+exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+exitMenuItemActionPerformed(evt);
+}
+});
+fileMenu.add(exitMenuItem);
 
-			public Object getElementAt(int i) {
-				return strings[i];
-			}
-		});
-		jScrollPane1.setViewportView(jList1);
+jMenuItem1.setText("Change User");
+jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+jMenuItem1ActionPerformed(evt);
+}
+});
+fileMenu.add(jMenuItem1);
 
-		jScrollPane1.setBounds(40, 40, 330, 187);
-		desktopPane.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+menuBar.add(fileMenu);
 
-		fileMenu.setText("File");
+helpMenu.setText("Help");
 
-		exitMenuItem.setText("Exit");
-		exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				exitMenuItemActionPerformed(evt);
-			}
-		});
-		fileMenu.add(exitMenuItem);
+aboutMenuItem.setText("About");
+aboutMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+public void mouseClicked(java.awt.event.MouseEvent evt) {
+aboutMenuItemMouseClicked(evt);
+}
+});
+aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+aboutMenuItemActionPerformed(evt);
+}
+});
+helpMenu.add(aboutMenuItem);
 
-		jMenuItem1.setText("Change User");
-		jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jMenuItem1ActionPerformed(evt);
-			}
-		});
-		fileMenu.add(jMenuItem1);
+menuBar.add(helpMenu);
 
-		menuBar.add(fileMenu);
+setJMenuBar(menuBar);
 
-		helpMenu.setText("Help");
+javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+getContentPane().setLayout(layout);
+layout.setHorizontalGroup(
+layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+.addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+);
+layout.setVerticalGroup(
+layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+.addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+);
 
-		aboutMenuItem.setText("About");
-		aboutMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				aboutMenuItemMouseClicked(evt);
-			}
-		});
-		aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				aboutMenuItemActionPerformed(evt);
-			}
-		});
-		helpMenu.add(aboutMenuItem);
+pack();
+}// </editor-fold>
 
-		menuBar.add(helpMenu);
-
-		setJMenuBar(menuBar);
-
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400,
-				Short.MAX_VALUE));
-		layout.setVerticalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279,
-				Short.MAX_VALUE));
-
-		pack();
-	}// </editor-fold>
 	//GEN-END:initComponents
 
 	private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,9 +137,8 @@ public class MainWindow extends javax.swing.JFrame {
 	private javax.swing.JMenuItem exitMenuItem;
 	private javax.swing.JMenu fileMenu;
 	private javax.swing.JMenu helpMenu;
-	private javax.swing.JList jList1;
 	private javax.swing.JMenuItem jMenuItem1;
-	private javax.swing.JScrollPane jScrollPane1;
+	private java.awt.List list1;
 	private javax.swing.JMenuBar menuBar;
 	// End of variables declaration//GEN-END:variables
 
