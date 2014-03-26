@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DebugGraphics;
+import javax.swing.JTable;
+import javax.swing.table.TableModel;
 
 import com.mysql.jdbc.Connection;
 
@@ -15,6 +17,7 @@ public class MainWindow extends javax.swing.JFrame {
 	public MainWindow(String loggedas) {
 
 		m_loggedas = loggedas;
+		TableModel tabelka;
 		java.sql.Connection conn = DbController.dbconnect();
 		friends = DbController.getfriends(conn, loggedas);
 
@@ -27,10 +30,11 @@ public class MainWindow extends javax.swing.JFrame {
 		initComponents();
 		int length;
 		length = friends.size();
-		for(int i=0;i<length;i++)
-		{
+		for (int i = 0; i < length; i++) {
 			System.out.println(friends.get(i));
-			list1.addItem("test");
+
+			jTable1.setValueAt(friends.get(i), i, 0);
+			jTable1.setValueAt("Not LoggedIn", i, 1);
 		}
 	}
 
@@ -43,71 +47,93 @@ public class MainWindow extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">
 	private void initComponents() {
 
-desktopPane = new javax.swing.JDesktopPane();
-menuBar = new javax.swing.JMenuBar();
-fileMenu = new javax.swing.JMenu();
-exitMenuItem = new javax.swing.JMenuItem();
-jMenuItem1 = new javax.swing.JMenuItem();
-helpMenu = new javax.swing.JMenu();
-aboutMenuItem = new javax.swing.JMenuItem();
+		desktopPane = new javax.swing.JDesktopPane();
+		jScrollPane1 = new javax.swing.JScrollPane();
+		jTable1 = new javax.swing.JTable();
+		menuBar = new javax.swing.JMenuBar();
+		fileMenu = new javax.swing.JMenu();
+		exitMenuItem = new javax.swing.JMenuItem();
+		jMenuItem1 = new javax.swing.JMenuItem();
+		helpMenu = new javax.swing.JMenu();
+		aboutMenuItem = new javax.swing.JMenuItem();
 
-setDefaultCloseOperation(3);
+		setDefaultCloseOperation(3);
 
-desktopPane.setName("");
+		desktopPane.setName("");
 
-fileMenu.setText("File");
+		jTable1.setModel(new javax.swing.table.DefaultTableModel(
+				new Object[][] { { null, null }, { null, null },
+						{ null, null }, { null, null }, { null, null },
+						{ null, null }, { null, null }, { null, null },
+						{ null, null }, { null, null }, { null, null },
+						{ null, null }, { null, null }, { null, null },
+						{ null, null }, { null, null } }, new String[] {
+						"User", "Status" }) {
+			Class[] types = new Class[] { java.lang.String.class,
+					java.lang.String.class };
 
-exitMenuItem.setText("Exit");
-exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-public void actionPerformed(java.awt.event.ActionEvent evt) {
-exitMenuItemActionPerformed(evt);
-}
-});
-fileMenu.add(exitMenuItem);
+			public Class getColumnClass(int columnIndex) {
+				return types[columnIndex];
+			}
+		});
+		jScrollPane1.setViewportView(jTable1);
 
-jMenuItem1.setText("Change User");
-jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-public void actionPerformed(java.awt.event.ActionEvent evt) {
-jMenuItem1ActionPerformed(evt);
-}
-});
-fileMenu.add(jMenuItem1);
+		jScrollPane1.setBounds(80, 0, 210, 280);
+		desktopPane.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-menuBar.add(fileMenu);
+		fileMenu.setText("File");
 
-helpMenu.setText("Help");
+		exitMenuItem.setText("Exit");
+		exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				exitMenuItemActionPerformed(evt);
+			}
+		});
+		fileMenu.add(exitMenuItem);
 
-aboutMenuItem.setText("About");
-aboutMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
-public void mouseClicked(java.awt.event.MouseEvent evt) {
-aboutMenuItemMouseClicked(evt);
-}
-});
-aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-public void actionPerformed(java.awt.event.ActionEvent evt) {
-aboutMenuItemActionPerformed(evt);
-}
-});
-helpMenu.add(aboutMenuItem);
+		jMenuItem1.setText("Change User");
+		jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jMenuItem1ActionPerformed(evt);
+			}
+		});
+		fileMenu.add(jMenuItem1);
 
-menuBar.add(helpMenu);
+		menuBar.add(fileMenu);
 
-setJMenuBar(menuBar);
+		helpMenu.setText("Help");
 
-javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-getContentPane().setLayout(layout);
-layout.setHorizontalGroup(
-layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-.addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-);
-layout.setVerticalGroup(
-layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-.addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-);
+		aboutMenuItem.setText("About");
+		aboutMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				aboutMenuItemMouseClicked(evt);
+			}
+		});
+		aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				aboutMenuItemActionPerformed(evt);
+			}
+		});
+		helpMenu.add(aboutMenuItem);
 
-pack();
-}// </editor-fold>
+		menuBar.add(helpMenu);
 
+		setJMenuBar(menuBar);
+
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
+				getContentPane());
+		getContentPane().setLayout(layout);
+		layout.setHorizontalGroup(layout.createParallelGroup(
+				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
+				desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400,
+				Short.MAX_VALUE));
+		layout.setVerticalGroup(layout.createParallelGroup(
+				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
+				desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279,
+				Short.MAX_VALUE));
+
+		pack();
+	}// </editor-fold>
 	//GEN-END:initComponents
 
 	private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +164,8 @@ pack();
 	private javax.swing.JMenu fileMenu;
 	private javax.swing.JMenu helpMenu;
 	private javax.swing.JMenuItem jMenuItem1;
-	private java.awt.List list1;
+	private javax.swing.JScrollPane jScrollPane1;
+	private javax.swing.JTable jTable1;
 	private javax.swing.JMenuBar menuBar;
 	// End of variables declaration//GEN-END:variables
 

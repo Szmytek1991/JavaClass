@@ -143,14 +143,13 @@ public class DbController
 			
 			try {
 				preparedStmt1 = conn.prepareStatement(query1);
-				preparedStmt1.setString(1, "test1");
+				preparedStmt1.setString(1, login);
 				resultSet1=preparedStmt1.executeQuery();
 				while(resultSet1.next())
 				{
 				userid = resultSet1.getInt("ID");
 				System.out.println(userid);
 				}
-				userid = 1;
 				preparedStmt2 = conn.prepareStatement(query2);
 				preparedStmt2.setInt(1, userid);
 				resultSet2=preparedStmt2.executeQuery();
