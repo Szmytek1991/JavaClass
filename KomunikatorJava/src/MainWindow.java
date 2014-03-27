@@ -21,12 +21,15 @@ public class MainWindow extends javax.swing.JFrame {
 		java.sql.Connection conn = DbController.dbconnect();
 		friends = DbController.getfriends(conn, loggedas);
 
+		
 		try {
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		initComponents();
 		int length;
 		length = friends.size();

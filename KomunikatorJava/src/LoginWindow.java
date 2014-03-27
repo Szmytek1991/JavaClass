@@ -22,13 +22,13 @@ public class LoginWindow extends javax.swing.JFrame {
 	//GEN-BEGIN:initComponents
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">
 	private void initComponents() {
-		//test GitHub ??
+
 		jButton1 = new javax.swing.JButton();
 		jLabel1 = new javax.swing.JLabel();
 		jTextField1 = new javax.swing.JTextField();
-		jTextField2 = new javax.swing.JTextField();
 		jButton2 = new javax.swing.JButton();
 		jLabel2 = new javax.swing.JLabel();
+		jPasswordField1 = new javax.swing.JPasswordField();
 
 		setDefaultCloseOperation(3);
 
@@ -43,13 +43,6 @@ public class LoginWindow extends javax.swing.JFrame {
 
 		jTextField1.setText("Login");
 
-		jTextField2.setText("Password");
-		jTextField2.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jTextField2ActionPerformed(evt);
-			}
-		});
-
 		jButton2.setText("Create New User");
 		jButton2.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,77 +52,61 @@ public class LoginWindow extends javax.swing.JFrame {
 
 		jLabel2.setText("Log Into Your Account");
 
+		jPasswordField1.setText("Password");
+
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
 				getContentPane());
 		getContentPane().setLayout(layout);
 		layout.setHorizontalGroup(layout
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(
+						javax.swing.GroupLayout.Alignment.TRAILING,
 						layout.createSequentialGroup()
-								.addContainerGap(113, Short.MAX_VALUE)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														javax.swing.GroupLayout.Alignment.TRAILING,
-														layout.createSequentialGroup()
-																.addComponent(
-																		jTextField1,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																		88,
-																		javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addGap(18, 18,
-																		18)
-																.addComponent(
-																		jTextField2,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																		93,
-																		javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addContainerGap(
-																		93,
-																		Short.MAX_VALUE))
-												.addGroup(
-														javax.swing.GroupLayout.Alignment.TRAILING,
-														layout.createSequentialGroup()
-																.addComponent(
-																		jButton1)
-																.addGap(149,
-																		149,
-																		149))))
+								.addContainerGap(88, Short.MAX_VALUE)
+								.addComponent(jTextField1,
+										javax.swing.GroupLayout.PREFERRED_SIZE,
+										98,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGap(18, 18, 18)
+								.addComponent(jPasswordField1,
+										javax.swing.GroupLayout.PREFERRED_SIZE,
+										104,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGap(97, 97, 97))
 				.addGroup(
 						javax.swing.GroupLayout.Alignment.TRAILING,
 						layout.createSequentialGroup()
 								.addContainerGap(243, Short.MAX_VALUE)
 								.addComponent(jButton2).addContainerGap())
 				.addGroup(
+						layout.createSequentialGroup().addGap(124, 124, 124)
+								.addComponent(jLabel2)
+								.addContainerGap(129, Short.MAX_VALUE))
+				.addGroup(
 						javax.swing.GroupLayout.Alignment.TRAILING,
 						layout.createSequentialGroup()
 								.addContainerGap(150, Short.MAX_VALUE)
-								.addComponent(jLabel1).addGap(134, 134, 134))
+								.addComponent(jButton1).addGap(165, 165, 165))
 				.addGroup(
-						layout.createSequentialGroup().addGap(124, 124, 124)
-								.addComponent(jLabel2)
-								.addContainerGap(129, Short.MAX_VALUE)));
+						layout.createSequentialGroup().addGap(133, 133, 133)
+								.addComponent(jLabel1)
+								.addContainerGap(151, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(
 						layout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(jLabel2)
-								.addGap(76, 76, 76)
+								.addGap(65, 65, 65)
 								.addGroup(
 										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
+												javax.swing.GroupLayout.Alignment.TRAILING,
+												false)
+												.addComponent(jTextField1)
 												.addComponent(
-														jTextField1,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
+														jPasswordField1,
 														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(
-														jTextField2,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
+														25, Short.MAX_VALUE))
 								.addPreferredGap(
 										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(jButton1)
@@ -138,7 +115,7 @@ public class LoginWindow extends javax.swing.JFrame {
 								.addComponent(jLabel1)
 								.addPreferredGap(
 										javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-										53, Short.MAX_VALUE)
+										64, Short.MAX_VALUE)
 								.addComponent(jButton2).addContainerGap()));
 
 		pack();
@@ -150,37 +127,26 @@ public class LoginWindow extends javax.swing.JFrame {
 		WindowController.closeloginwindow();
 	}
 
-	private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
-		// TODO add your handling code here:
-	}
-
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-		
-		String loginTB = jTextField1.getText();
-		String passwordTB = jTextField2.getText();
 
-			Connection conn = DbController.dbconnect();
-			
-			if(DbController.login(conn, loginTB, passwordTB))
-			{
-				WindowController.showmainwindow(loginTB);
-				WindowController.closeloginwindow();
-			}
-			else
-			{
-				jLabel1.setText("Wrong Login or Password");
-			}
-			
-			
-			
-			
-			
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		String loginTB = jTextField1.getText();
+		String passwordTB = jPasswordField1.getText();
+
+		Connection conn = DbController.dbconnect();
+
+		if (DbController.login(conn, loginTB, passwordTB)) {
+			WindowController.showmainwindow(loginTB);
+			WindowController.closeloginwindow();
+		} else {
+			jLabel1.setText("Wrong Login or Password");
+		}
+
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// TODO add your handling code here:
 	}
@@ -195,8 +161,8 @@ public class LoginWindow extends javax.swing.JFrame {
 	private javax.swing.JButton jButton2;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
+	private javax.swing.JPasswordField jPasswordField1;
 	private javax.swing.JTextField jTextField1;
-	private javax.swing.JTextField jTextField2;
 	// End of variables declaration//GEN-END:variables
 
 }
