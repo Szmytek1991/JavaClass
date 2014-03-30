@@ -42,6 +42,15 @@ public class LoginWindow extends javax.swing.JFrame {
 		jLabel1.setText("Connection Check");
 
 		jTextField1.setText("Login");
+		jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+			public void focusGained(java.awt.event.FocusEvent evt) {
+				jTextField1FocusGained(evt);
+			}
+
+			public void focusLost(java.awt.event.FocusEvent evt) {
+				jTextField1FocusLost(evt);
+			}
+		});
 
 		jButton2.setText("Create New User");
 		jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +62,15 @@ public class LoginWindow extends javax.swing.JFrame {
 		jLabel2.setText("Log Into Your Account");
 
 		jPasswordField1.setText("Password");
+		jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+			public void focusGained(java.awt.event.FocusEvent evt) {
+				jPasswordField1FocusGained(evt);
+			}
+
+			public void focusLost(java.awt.event.FocusEvent evt) {
+				jPasswordField1FocusLost(evt);
+			}
+		});
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
 				getContentPane());
@@ -121,6 +139,24 @@ public class LoginWindow extends javax.swing.JFrame {
 		pack();
 	}// </editor-fold>
 	//GEN-END:initComponents
+
+	private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {
+		if (jPasswordField1.getText().isEmpty())
+			jPasswordField1.setText("Password");
+	}
+
+	private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {
+		jPasswordField1.setText("");
+	}
+
+	private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {
+		if (jTextField1.getText().isEmpty())
+			jTextField1.setText("Enter Login");
+	}
+
+	private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {
+		jTextField1.setText("");
+	}
 
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
 		WindowController.showusercreatorwindow();

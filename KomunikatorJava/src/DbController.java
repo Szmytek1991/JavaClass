@@ -175,5 +175,87 @@ public class DbController
 			
 			
 		}
+		public static boolean addfriend(Connection conn, String loggedas, String friendlogin)
+		{
+			ResultSet resultSet = null;
+			Statement statement = null;
+			String query1 = "select `ID` from 8306_traffii1.user Where `Login` = (?)";
+			PreparedStatement preparedStmt1;
+			PreparedStatement preparedStmt2;
+			PreparedStatement preparedStmt3;
+			String query2 = "INSERT INTO `8306_traffii1`.`friends` (`userid`, `friendid`) VALUES ((?), (?)), ((?), (?))";
+			ResultSet resultSet1 = null;
+			ResultSet resultSet2 = null;
+			ResultSet resultSet3 = null;
+			int userid=0;
+			int friendid=0;
+			String dbLogin;
+		
+			boolean authentication = false;
+			
+			
+			
+				try {
+					
+					statement = conn.createStatement();
+				resultSet = statement
+					.executeQuery("select * from 8306_traffii1.User");
+				
+			while (resultSet.next()) 
+			{
+				dbLogin = resultSet.getString("Login");
+
+				if (dbLogin.equals(friendlogin))
+				{
+					authentication = true;
+					
+				}
+			} 
+				} 
+				catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			if(authentication)
+			{
+				try {
+					preparedStmt1 = conn.prepareStatement(query1);
+					preparedStmt1.setString(1, loggedas);
+					resultSet1=preparedStmt1.executeQuery();
+					while(resultSet1.next())
+					{
+					userid = resultSet1.getInt("ID");
+					System.out.println(userid);
+					}
+					
+					preparedStmt2 = conn.prepareStatement(query1);
+					preparedStmt2.setString(1, friendlogin);
+					resultSet2=preparedStmt2.executeQuery();
+					while(resultSet2.next())
+					{
+					friendid = resultSet2.getInt("ID");
+					System.out.println(friendid);
+					}
+
+					preparedStmt3 = conn.prepareStatement(query2);
+					preparedStmt3.setInt(1, userid);
+					preparedStmt3.setInt(2, friendid);
+					preparedStmt3.setInt(3, friendid);
+					preparedStmt3.setInt(4, userid);
+					preparedStmt3.execute();
+					
+					
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				return authentication;
+			}
+			else
+				return authentication;
+			
+		}
 		
 }

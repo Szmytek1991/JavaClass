@@ -21,15 +21,13 @@ public class MainWindow extends javax.swing.JFrame {
 		java.sql.Connection conn = DbController.dbconnect();
 		friends = DbController.getfriends(conn, loggedas);
 
-		
 		try {
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		initComponents();
 		int length;
 		length = friends.size();
@@ -53,6 +51,7 @@ public class MainWindow extends javax.swing.JFrame {
 		desktopPane = new javax.swing.JDesktopPane();
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jTable1 = new javax.swing.JTable();
+		jButton1 = new javax.swing.JButton();
 		menuBar = new javax.swing.JMenuBar();
 		fileMenu = new javax.swing.JMenu();
 		exitMenuItem = new javax.swing.JMenuItem();
@@ -81,8 +80,17 @@ public class MainWindow extends javax.swing.JFrame {
 		});
 		jScrollPane1.setViewportView(jTable1);
 
-		jScrollPane1.setBounds(80, 0, 210, 280);
+		jScrollPane1.setBounds(10, 0, 210, 280);
 		desktopPane.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+		jButton1.setText("Add Friend");
+		jButton1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jButton1ActionPerformed(evt);
+			}
+		});
+		jButton1.setBounds(230, 10, 160, 31);
+		desktopPane.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
 		fileMenu.setText("File");
 
@@ -139,6 +147,11 @@ public class MainWindow extends javax.swing.JFrame {
 	}// </editor-fold>
 	//GEN-END:initComponents
 
+	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+		WindowController.showaddfriendwindow(m_loggedas);
+		WindowController.closemainwindow();
+	}
+
 	private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
 		DbController.logout(m_loggedas);
 		WindowController.showloginwindow();
@@ -166,6 +179,7 @@ public class MainWindow extends javax.swing.JFrame {
 	private javax.swing.JMenuItem exitMenuItem;
 	private javax.swing.JMenu fileMenu;
 	private javax.swing.JMenu helpMenu;
+	private javax.swing.JButton jButton1;
 	private javax.swing.JMenuItem jMenuItem1;
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JTable jTable1;

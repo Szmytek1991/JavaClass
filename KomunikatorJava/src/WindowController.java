@@ -4,6 +4,7 @@ public class WindowController {
 	static CreateUser createuser;
 	static LoginWindow loginwindow;
 	static AboutBox aboutbox;
+	static AddFriend addfriend;
 
 	public static void main(String[] args) 
 	{
@@ -41,6 +42,12 @@ public class WindowController {
 		aboutbox = new AboutBox(loggedas);
 		aboutbox.show(true);
 	}
+	public static void showaddfriendwindow(String loggedas)
+	{
+		addfriend = new AddFriend(loggedas);
+		addfriend.show(true);
+		
+	}
 	public static void closeloginwindow()
 	{
 		loginwindow.dispose();
@@ -56,5 +63,9 @@ public class WindowController {
 	public static void closeaboutbox()
 	{
 		aboutbox.dispose();
+	}
+	public static void closeaddfriendwindow()
+	{
+		addfriend.dispose();
 	}
 }
