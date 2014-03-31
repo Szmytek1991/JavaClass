@@ -186,7 +186,6 @@ public class DbController
 			String query2 = "INSERT INTO `8306_traffii1`.`friends` (`userid`, `friendid`) VALUES ((?), (?)), ((?), (?))";
 			ResultSet resultSet1 = null;
 			ResultSet resultSet2 = null;
-			ResultSet resultSet3 = null;
 			int userid=0;
 			int friendid=0;
 			String dbLogin;
@@ -256,6 +255,55 @@ public class DbController
 			else
 				return authentication;
 			
+		}
+		
+		public static List<Integer> getactivity(Connection conn, String loggedas)
+		{
+			List<Integer> result = new ArrayList<Integer>();
+			PreparedStatement preparedStmt1;
+			PreparedStatement preparedStmt2;
+			PreparedStatement preparedStmt3;
+			ResultSet resultSet1 = null;
+			ResultSet resultSet2 = null;
+			ResultSet resultSet3 = null;
+			int friendid, userid = 0;
+			String query1 = "select `ID` from 8306_traffii1.user Where `Login` = (?)";
+			String query2 = "select `friendid` from 8306_traffii1.friends Where `userid` = (?)";
+			String query3 = "select `LoggedIn` from 8306_traffii1.user Where `ID` = (?)";
+			
+			try {
+				preparedStmt1 = conn.prepareStatement(query1);
+				preparedStmt1.setString(1, loggedas);
+				resultSet1=preparedStmt1.executeQuery();
+				while(resultSet1.next())
+				{
+				userid = resultSet1.getInt("ID");
+				System.out.println(userid);
+				}	
+
+				preparedStmt2 = conn.prepareStatement(query2);
+				preparedStmt2.setInt(1, userid);
+				resultSet2=preparedStmt2.executeQuery();
+				while(resultSet2.next())
+				{
+					friendid = resultSet2.getInt("friendid");
+					System.out.println(friendid);
+					preparedStmt3 = conn.prepareStatement(query3);
+					preparedStmt3.setInt(1, friendid);
+					resultSet3=preparedStmt3.executeQuery();
+					while(resultSet3.next())
+					{
+					System.out.println(resultSet3.getInt("LoggedIn"));
+					result.add(resultSet3.getInt("LoggedIn"));
+					}
+				}
+
+				return result;
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				return null;
+			}
 		}
 		
 }
