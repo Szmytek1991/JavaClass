@@ -33,12 +33,31 @@ public class CreateUser extends javax.swing.JFrame {
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
 		jLabel1 = new javax.swing.JLabel();
+		jLabel2 = new javax.swing.JLabel();
 
 		setDefaultCloseOperation(3);
 
 		jTextField1.setText("Login");
+		jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+			public void focusGained(java.awt.event.FocusEvent evt) {
+				jTextField1FocusGained(evt);
+			}
+
+			public void focusLost(java.awt.event.FocusEvent evt) {
+				jTextField1FocusLost(evt);
+			}
+		});
 
 		jTextField2.setText("Password");
+		jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+			public void focusGained(java.awt.event.FocusEvent evt) {
+				jTextField2FocusGained(evt);
+			}
+
+			public void focusLost(java.awt.event.FocusEvent evt) {
+				jTextField2FocusLost(evt);
+			}
+		});
 
 		jButton1.setText("Accept");
 		jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,12 +117,6 @@ public class CreateUser extends javax.swing.JFrame {
 																						javax.swing.GroupLayout.PREFERRED_SIZE,
 																						150,
 																						javax.swing.GroupLayout.PREFERRED_SIZE)
-																				.addComponent(
-																						jTextField1,
-																						javax.swing.GroupLayout.Alignment.LEADING,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						150,
-																						javax.swing.GroupLayout.PREFERRED_SIZE)
 																				.addGroup(
 																						javax.swing.GroupLayout.Alignment.LEADING,
 																						layout.createSequentialGroup()
@@ -111,7 +124,21 @@ public class CreateUser extends javax.swing.JFrame {
 																										55,
 																										55)
 																								.addComponent(
-																										jLabel1)))))
+																										jLabel1))
+																				.addGroup(
+																						javax.swing.GroupLayout.Alignment.LEADING,
+																						layout.createParallelGroup(
+																								javax.swing.GroupLayout.Alignment.TRAILING,
+																								false)
+																								.addComponent(
+																										jLabel2,
+																										javax.swing.GroupLayout.Alignment.LEADING)
+																								.addComponent(
+																										jTextField1,
+																										javax.swing.GroupLayout.Alignment.LEADING,
+																										javax.swing.GroupLayout.DEFAULT_SIZE,
+																										150,
+																										Short.MAX_VALUE)))))
 								.addContainerGap()));
 		layout.setVerticalGroup(layout
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,11 +146,14 @@ public class CreateUser extends javax.swing.JFrame {
 						layout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(jLabel1)
-								.addGap(55, 55, 55)
+								.addGap(28, 28, 28)
 								.addComponent(jTextField1,
 										javax.swing.GroupLayout.PREFERRED_SIZE,
 										javax.swing.GroupLayout.DEFAULT_SIZE,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(
+										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(jLabel2)
 								.addPreferredGap(
 										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(jTextField2,
@@ -136,29 +166,66 @@ public class CreateUser extends javax.swing.JFrame {
 												javax.swing.GroupLayout.Alignment.BASELINE)
 												.addComponent(jButton2)
 												.addComponent(jButton1))
-								.addContainerGap(81, Short.MAX_VALUE)));
+								.addContainerGap(102, Short.MAX_VALUE)));
 
 		pack();
 	}// </editor-fold>
 	//GEN-END:initComponents
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) 
-	{		
+	private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {
+		if (jTextField2.getText().isEmpty())
+			jTextField2.setText("Password");
+		// TODO add your handling code here:
+	}
+
+	private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {
+		if (jTextField2.getText().equals("Password"))
+			jTextField2.setText("");
+		// TODO add your handling code here:
+	}
+
+	private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {
+		if (jTextField1.getText().equals("Login"))
+			jTextField1.setText("");
+	}
+
+	private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {
+		if (!jTextField1.getText().isEmpty()) {
+			if (!jTextField1.getText().equals("Login")) {
+				Connection conn = DbController.dbconnect();
+				if (DbController.checkifexist(conn, jTextField1.getText(),
+						"Login")) {
+					jLabel2.setText("Login already exist");
+					jButton1.setEnabled(false);
+				} else {
+					jLabel2.setText("Login is free to use");
+					jButton1.setEnabled(true);
+
+				}
+			} else
+				jLabel2.setText("");
+		} else {
+			jTextField1.setText("Login");
+			jLabel2.setText("");
+		}
+	}
+
+	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 		String loginTB = jTextField1.getText();
 		String passwordTB = jTextField2.getText();
-		
-			Connection conn = DbController.dbconnect();
-			if(DbController.createuser(conn, loginTB, passwordTB))
-				jLabel1.setText("User Add Success");
-			else
-				jLabel1.setText("User Add Failed");
-			
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
+		Connection conn = DbController.dbconnect();
+		if (DbController.createuser(conn, loginTB, passwordTB))
+			jLabel1.setText("User Add Success");
+		else
+			jLabel1.setText("User Add Failed");
+
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,19 +237,13 @@ public class CreateUser extends javax.swing.JFrame {
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String args[]) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new CreateUser().setVisible(true);
-			}
-		});
-	}
 
 	//GEN-BEGIN:variables
 	// Variables declaration - do not modify
 	private javax.swing.JButton jButton1;
 	private javax.swing.JButton jButton2;
 	private javax.swing.JLabel jLabel1;
+	private javax.swing.JLabel jLabel2;
 	private javax.swing.JTextField jTextField1;
 	private javax.swing.JTextField jTextField2;
 	// End of variables declaration//GEN-END:variables

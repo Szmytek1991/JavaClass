@@ -41,7 +41,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
 		jLabel1.setText("Connection Check");
 
-		jTextField1.setText("Login");
+		jTextField1.setText("Enter Login");
+		jTextField1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jTextField1ActionPerformed(evt);
+			}
+		});
 		jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
 			public void focusGained(java.awt.event.FocusEvent evt) {
 				jTextField1FocusGained(evt);
@@ -140,13 +145,18 @@ public class LoginWindow extends javax.swing.JFrame {
 	}// </editor-fold>
 	//GEN-END:initComponents
 
+	private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
+		// TODO add your handling code here:
+	}
+
 	private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {
 		if (jPasswordField1.getText().isEmpty())
 			jPasswordField1.setText("Password");
 	}
 
 	private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {
-		jPasswordField1.setText("");
+		if (jPasswordField1.getText().equals("Password"))
+			jPasswordField1.setText("");
 	}
 
 	private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {
@@ -155,7 +165,8 @@ public class LoginWindow extends javax.swing.JFrame {
 	}
 
 	private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {
-		jTextField1.setText("");
+		if (jTextField1.getText().equals("Enter Login"))
+			jTextField1.setText("");
 	}
 
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {

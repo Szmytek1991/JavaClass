@@ -305,5 +305,31 @@ public class DbController
 				return null;
 			}
 		}
-		
+
+	public static boolean checkifexist(Connection conn, String item,
+			String where) {
+
+		ResultSet resultSet = null;
+		Statement statement = null;
+		String dbitem;
+		boolean flag = false;
+
+		try {
+			statement = conn.createStatement();
+			resultSet = statement
+					.executeQuery("select * from 8306_traffii1.User");
+			while (resultSet.next()) {
+				dbitem = resultSet.getString(where);
+
+				if (dbitem.equals(item))
+					flag = true;
+			}
+			return flag;
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return flag;
+		}
+	}
+
 }

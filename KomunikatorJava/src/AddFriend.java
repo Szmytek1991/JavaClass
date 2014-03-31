@@ -33,6 +33,7 @@ public class AddFriend extends javax.swing.JFrame {
 		jTextField1 = new javax.swing.JTextField();
 		jButton1 = new javax.swing.JButton();
 		jButton2 = new javax.swing.JButton();
+		jLabel1 = new javax.swing.JLabel();
 
 		setDefaultCloseOperation(3);
 
@@ -98,7 +99,14 @@ public class AddFriend extends javax.swing.JFrame {
 																		jButton2)
 																.addGap(110,
 																		110,
-																		110)))));
+																		110))
+												.addGroup(
+														layout.createSequentialGroup()
+																.addComponent(
+																		jLabel1)
+																.addContainerGap(
+																		388,
+																		Short.MAX_VALUE)))));
 		layout.setVerticalGroup(layout
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(
@@ -113,18 +121,20 @@ public class AddFriend extends javax.swing.JFrame {
 														javax.swing.GroupLayout.PREFERRED_SIZE,
 														javax.swing.GroupLayout.DEFAULT_SIZE,
 														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(18, 18, 18)
-								.addComponent(jButton2)
-								.addContainerGap(
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)));
+								.addPreferredGap(
+										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(jLabel1)
+								.addPreferredGap(
+										javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+										33, Short.MAX_VALUE)
+								.addComponent(jButton2).addContainerGap()));
 
 		pack();
 	}// </editor-fold>
 	//GEN-END:initComponents
 
 	private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {
-		if(jTextField1.getText().isEmpty())
+		if (jTextField1.getText().isEmpty())
 			jTextField1.setText("Enter Friends Login");
 	}
 
@@ -134,6 +144,8 @@ public class AddFriend extends javax.swing.JFrame {
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 		Connection conn = DbController.dbconnect();
+		if(DbController.checkifexist(conn, jTextField1.getText(), "Login"))
+		{
 			boolean test = DbController.addfriend(conn, m_loggedas, jTextField1.getText());
 			try {
 				conn.close();
@@ -142,9 +154,13 @@ public class AddFriend extends javax.swing.JFrame {
 				e.printStackTrace();
 			}
 			if (test)
-				System.out.println("udalo sie");
+				jLabel1.setText("Dodano do znajomych");
 			else
-				System.out.println("nie udalo sie");
+				jLabel1.setText("Nie udalo sie dodac do znajomych");
+		}
+		else
+			jLabel1.setText("Uzytkownik nie istnieje");
+			
 	}
 
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +176,7 @@ public class AddFriend extends javax.swing.JFrame {
 	// Variables declaration - do not modify
 	private javax.swing.JButton jButton1;
 	private javax.swing.JButton jButton2;
+	private javax.swing.JLabel jLabel1;
 	private javax.swing.JTextField jTextField1;
 	// End of variables declaration//GEN-END:variables
 
