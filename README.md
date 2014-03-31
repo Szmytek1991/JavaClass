@@ -1,11 +1,12 @@
 Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików graficznych, przechowywanie informacji w bazie danych, logowanie do programu.
 
 1. Okienka
-- okno rozmowy
-- okno kontaktów
-- okno rejestracji
-- okno logowania
-- okno aboutbox
+- okno rozmowy ( bedzie na piate zajecia )
+- okno kontaktów ( zrobione na drugie zajecia, dodano funkcjonalnosci na trzecie i czwarte zajecia )
+- okno rejestracji ( zrobione na drugie zajecia, dodano funkcjonalnosci na czwarte zajecia )
+- okno logowania ( zrobione na drugie zajecia, dodano funkcjonalnosci na czwarte zajecia )
+- okno aboutbox ( zrobione na drugie zajecia )
+- okno dodawania znajomych ( zrobione na czwarte zajecia )
 
 2. Zapis/Odczyt plików
 - zapis/odczyt danych lokalnie do polaczenia
@@ -15,23 +16,23 @@ Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików
 
 
 3. Współbierzność
-- monitorowanie aktywnosci uzytkowników
-- oczekiwanie na wiadomosc
+- monitorowanie aktywnosci uzytkowników ( zrobione na czwarte zajecia )
+- oczekiwanie na wiadomosc ( bedzie na piate zajecia )
 - pasek postepu wysylania pliku
 - wysyłanie/odbieranie pliku
 
 
 4. Bazy Danych
-- zapis danych uzytkowników
-- logowanie
-- sprawdzanie listy zalogowanych uzytkowników
-- zapis listy "znajomych"
+- zapis danych uzytkowników ( zrobione na drugie zajecia )
+- logowanie ( zrobione na drugie zajecia, dodano funkcjonalnosci na trzecie zajecia )
+- sprawdzanie listy zalogowanych uzytkowników ( zrobione na czwarte zajecia )
+- zapis listy "znajomych" ( zrobione na trzecie zajecia )
 
 
 5. Komunikacja sieciowa
-- zastosowanie protokołu TCP lub UDP
+- zastosowanie protokołu TCP lub UDP ( bedzie na piate zajecia )
 - ??? sposob na przesylanie pliku
-- przesyłanie wiadomości miedzy uzytkownikami przez protokół TCP
+- przesyłanie wiadomości miedzy uzytkownikami przez protokół TCP ( bedzie na piate zajecia )
 - 
 
 
