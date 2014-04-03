@@ -26,8 +26,8 @@ Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików
 - zapis danych uzytkowników ( zrobione na drugie zajecia )
 - logowanie ( zrobione na drugie zajecia, dodano funkcjonalnosci na trzecie zajecia )
 - sprawdzanie listy zalogowanych uzytkowników ( zrobione na czwarte zajecia )
-- zapis listy "znajomych" ( zrobione na trzecie zajecia )
-
+- odczyt listy "znajomych" ( zrobione na trzecie zajecia )
+- dodawanie znajomych ( zrobione na czwarte zajecia )
 
 5. Komunikacja sieciowa
 - zastosowanie protokołu TCP lub UDP ( bedzie na piate zajecia )
