@@ -36,7 +36,7 @@ public class MainWindow extends javax.swing.JFrame {
 		int length;
 		length = friends.size();
 		for (int i = 0; i < length; i++) {
-			System.out.println(friends.get(i));
+			//System.out.println(friends.get(i));
 
 			jTable1.setValueAt(friends.get(i), i, 0);
 		}

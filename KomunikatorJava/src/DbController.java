@@ -148,7 +148,7 @@ public class DbController
 				while(resultSet1.next())
 				{
 				userid = resultSet1.getInt("ID");
-				System.out.println(userid);
+				//System.out.println(userid);
 				}
 				preparedStmt2 = conn.prepareStatement(query2);
 				preparedStmt2.setInt(1, userid);
@@ -156,13 +156,13 @@ public class DbController
 				while(resultSet2.next())
 				{
 					id = resultSet2.getInt("friendid");
-					System.out.println(id);
+					//System.out.println(id);
 					preparedStmt3 = conn.prepareStatement(query3);
 					preparedStmt3.setInt(1, id);
 					resultSet3=preparedStmt3.executeQuery();
 					while(resultSet3.next())
 					{
-					System.out.println(resultSet3.getString("Login"));
+					//System.out.println(resultSet3.getString("Login"));
 					result.add(resultSet3.getString("Login"));
 					}
 				}
@@ -225,7 +225,7 @@ public class DbController
 					while(resultSet1.next())
 					{
 					userid = resultSet1.getInt("ID");
-					System.out.println(userid);
+					//System.out.println(userid);
 					}
 					
 					preparedStmt2 = conn.prepareStatement(query1);
@@ -234,7 +234,7 @@ public class DbController
 					while(resultSet2.next())
 					{
 					friendid = resultSet2.getInt("ID");
-					System.out.println(friendid);
+					//System.out.println(friendid);
 					}
 
 					preparedStmt3 = conn.prepareStatement(query2);
@@ -278,7 +278,7 @@ public class DbController
 				while(resultSet1.next())
 				{
 				userid = resultSet1.getInt("ID");
-				System.out.println(userid);
+				//System.out.println(userid);
 				}	
 
 				preparedStmt2 = conn.prepareStatement(query2);
@@ -287,13 +287,13 @@ public class DbController
 				while(resultSet2.next())
 				{
 					friendid = resultSet2.getInt("friendid");
-					System.out.println(friendid);
+					//System.out.println(friendid);
 					preparedStmt3 = conn.prepareStatement(query3);
 					preparedStmt3.setInt(1, friendid);
 					resultSet3=preparedStmt3.executeQuery();
 					while(resultSet3.next())
 					{
-					System.out.println(resultSet3.getInt("LoggedIn"));
+					//System.out.println(resultSet3.getInt("LoggedIn"));
 					result.add(resultSet3.getInt("LoggedIn"));
 					}
 				}
