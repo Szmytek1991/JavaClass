@@ -1,5 +1,11 @@
 Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików graficznych, przechowywanie informacji w bazie danych, logowanie do programu.
 
+Zajecia 2 - 20.03.2014
+Zajecia 3 - 27.03.2014
+Zajecia 4 - 03.04.2014
+
+
+
 1. Okienka
 - okno rozmowy ( bedzie na piate zajecia )
 - okno kontaktów ( zrobione na drugie zajecia, dodano funkcjonalnosci na trzecie i czwarte zajecia )
