@@ -1,3 +1,4 @@
+package windows;
 /*
  * Main.java
 /**
@@ -5,6 +6,9 @@
  * @author  __USER__
  */
 import java.sql.*;
+
+import controllers.DbController;
+import controllers.WindowController;
 
 @SuppressWarnings("serial")
 public class LoginWindow extends javax.swing.JFrame {

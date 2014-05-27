@@ -1,15 +1,12 @@
 Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików graficznych, przechowywanie informacji w bazie danych, logowanie do programu.
 
-Zajecia 2  - 20.03.2014 - 1pkt
-Zajecia 3  - 27.03.2014 - 1pkt
-Zajecia 4  - 03.04.2014 - 1pkt
-Zajecia 5  - 10.04.2014 - 1pkt
-Zajecia 6  - 17.04.2014 - nie odbeda sie
-Zajecia 7  - 24.04.2014 - nie odbeda sie
-Zajecia 8  - 08.05.2014 - sesja kół
-Zajęcia 9  - 15.05.2014 - juwenalia
-Zajęcia 10 - 22.05.2014 - wyjazd koła
-Zajęcia 11 - 
+Zajecia 2 - 20.03.2014 - 1pkt
+Zajecia 3 - 27.03.2014 - 1pkt
+Zajecia 4 - 03.04.2014 - 1pkt
+Zajecia 5 - 10.04.2014 - 1pkt
+Zajecia 6 - 17.04.2014 - nie odbeda sie
+Zajecia 7 - 24.04.2014 - nie odbeda sie
+Zajecia 8 - 08.05.2014 -
 
 
 1. Okienka
@@ -28,7 +25,7 @@ Zajęcia 11 -
 
 3. Współbierzność
 - monitorowanie aktywnosci uzytkowników ( zrobione na piate zajecia )
-- oczekiwanie na wiadomosc ( zrobione niestabilnie )
+- oczekiwanie na wiadomosc 
 - pasek postepu wysylania pliku
 - wysyłanie/odbieranie pliku
 
@@ -41,9 +38,9 @@ Zajęcia 11 -
 - dodawanie znajomych ( zrobione )
 
 5. Komunikacja sieciowa
-- zastosowanie protokołu TCP ( zrobione dziala niestabilnie )
+- zastosowanie protokołu TCP
 - przesylanie pliku graficznego
-- przesyłanie wiadomości miedzy uzytkownikami przez protokół TCP ( dziala niestabilnie )
+- przesyłanie wiadomości miedzy uzytkownikami przez protokół TCP
 - 
 
 

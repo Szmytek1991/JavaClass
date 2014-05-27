@@ -1,5 +1,9 @@
+package windows;
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import controllers.DbController;
+import controllers.WindowController;
 
 /*
  * createuser.java

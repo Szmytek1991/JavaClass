@@ -1,4 +1,5 @@
-
+package controllers;
+import windows.*;
 public class WindowController {
 	static MainWindow mainwindow;
 	static CreateUser createuser;

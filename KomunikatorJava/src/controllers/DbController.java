@@ -1,3 +1,4 @@
+package controllers;
 
 	import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +14,15 @@ public class DbController
 
 		public static boolean createuser (Connection conn, String login, String password)
 		{
+			Thread watek = new Thread(new Runnable(){
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					
+				}});
+			//watek.start();
+			
 
 			String query = " insert into 8306_traffii1.User (Login, Password, LoggedIn)"
 					+ " values (?, ?, ?)";
@@ -256,7 +266,29 @@ public class DbController
 				return authentication;
 			
 		}
-		
+		public static boolean startconv(String friendlogin, String IP)
+		{
+			Connection conn = dbconnect();
+
+			String query = "UPDATE 8306_traffii1.User " +
+	                   "SET IP = (?) WHERE Login in (?)";
+			PreparedStatement preparedStmt;
+			try
+			{
+				preparedStmt = conn.prepareStatement(query);
+				preparedStmt.setString(1, IP);
+				preparedStmt.setString(2, friendlogin);
+
+				preparedStmt.execute();
+				conn.close();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+				return false;
+			}
+		}
 		public static List<Integer> getactivity(Connection conn, String loggedas)
 		{
 			List<Integer> result = new ArrayList<Integer>();
@@ -329,6 +361,50 @@ public class DbController
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			return flag;
+		}
+	}public static List<String> getconversation(Connection conn, String loggedas)
+	{
+		List<String> result = new ArrayList<String>();
+		PreparedStatement preparedStmt1;
+		PreparedStatement preparedStmt2;
+		PreparedStatement preparedStmt3;
+		ResultSet resultSet1 = null;
+		ResultSet resultSet2 = null;
+		ResultSet resultSet3 = null;
+		int friendid, userid = 0;
+		String query1 = "select `ID` from 8306_traffii1.user Where `Login` = (?)";
+		String query2 = "select `friendid` from 8306_traffii1.friends Where `userid` = (?)";
+		String query3 = "select `IP` from 8306_traffii1.user Where `ID` = (?)";
+		
+		try {
+			preparedStmt1 = conn.prepareStatement(query1);
+			preparedStmt1.setString(1, loggedas);
+			resultSet1=preparedStmt1.executeQuery();
+			while(resultSet1.next())
+			{
+			userid = resultSet1.getInt("ID");
+			}	
+
+			preparedStmt2 = conn.prepareStatement(query2);
+			preparedStmt2.setInt(1, userid);
+			resultSet2=preparedStmt2.executeQuery();
+			while(resultSet2.next())
+			{
+				friendid = resultSet2.getInt("friendid");
+				preparedStmt3 = conn.prepareStatement(query3);
+				preparedStmt3.setInt(1, friendid);
+				resultSet3=preparedStmt3.executeQuery();
+				while(resultSet3.next())
+				{
+				result.add(resultSet3.getString("IP"));
+				}
+			}
+				
+			return result;
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return null;
 		}
 	}
 

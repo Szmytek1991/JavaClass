@@ -1,3 +1,6 @@
+package windows;
+
+import controllers.WindowController;
 /*
  * AboutBox.java
  *
