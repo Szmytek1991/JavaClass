@@ -9,28 +9,31 @@ Zajecia 7  - 24.04.2014 - nie odbeda sie
 Zajecia 8  - 08.05.2014 - sesja kół
 Zajęcia 9  - 15.05.2014 - juwenalia
 Zajęcia 10 - 22.05.2014 - wyjazd koła
-Zajęcia 11 - 
+Zajęcia 11 - 29.05.2014 - 4 pkt ( max )
+Zajecia 12 - 05.06.2014 - 
+Zajecia 13 - 12.06.2014 - 
 
 
 1. Okienka
-- okno rozmowy 
+- okno rozmowy ( zrobione na jedenaste zajecia )
 - okno kontaktów ( zrobione na czwarte zajecia )
 - okno rejestracji ( zrobione na drugie zajecia )
 - okno logowania ( zrobione na trzecie zajecia )
-- okno aboutbox ( zrobione )
-- okno dodawania znajomych ( zrobione )
+- okno aboutbox ( zrobione na jedenaste zajecia )
+- okno dodawania znajomych ( zrobione na jedenaste zajecia )
 
 2. Zapis/Odczyt plików
 - zapis/odczyt historii lokalnie
 - zapis/odczyt przesłanych plików graficznych
-- zapis/odczyt ustawień programu ( uruchamianie z systemem )
 
 
 3. Współbierzność
 - monitorowanie aktywnosci uzytkowników ( zrobione na piate zajecia )
-- oczekiwanie na wiadomosc ( zrobione niestabilnie )
+- oczekiwanie na wiadomosc ( zrobione na jedenaste zajecia )
+- podtrzymywanie okien i serwera na osobnych watkach ( zrobione na jedenaste zajecia )
 - pasek postepu wysylania pliku
 - wysyłanie/odbieranie pliku
+- oczekiwanie na konwersacje
 
 
 4. Bazy Danych
@@ -38,17 +41,15 @@ Zajęcia 11 -
 - logowanie ( zrobione na trzecie zajecia )
 - sprawdzanie listy zalogowanych uzytkowników ( zrobione na piate zajecia )
 - odczyt listy "znajomych" ( zrobione na czwarte zajecia )
-- dodawanie znajomych ( zrobione )
+- dodawanie znajomych ( zrobione na jedenaste zajecia )
+- przetwarzanie nowych konwersacji
 
 5. Komunikacja sieciowa
-- zastosowanie protokołu TCP ( zrobione dziala niestabilnie )
+- zastosowanie protokołu TCP ( zrobione na jedenaste zajecia )
 - przesylanie pliku graficznego
-- przesyłanie wiadomości miedzy uzytkownikami przez protokół TCP ( dziala niestabilnie )
-- 
+- przesyłanie wiadomości miedzy uzytkownikami przez protokół TCP ( zrobione na jedenaste zajecia )
 
 
 6. Dodatkowe
+- skanowanie interfejsow sieciowych 
 - ikona tray
-- stworzenie instalatora
-- zastosowanie jakiegos wzorca projektowego
-- menu kontekstowe
