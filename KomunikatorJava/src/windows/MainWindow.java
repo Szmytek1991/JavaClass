@@ -19,6 +19,9 @@ import com.mysql.jdbc.Connection;
 
 import controllers.DbController;
 import controllers.WindowController;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class MainWindow extends javax.swing.JFrame {
@@ -254,6 +257,24 @@ public class MainWindow extends javax.swing.JFrame {
 				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
 				desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279,
 				Short.MAX_VALUE));
+		
+		JButton btnHistory = new JButton("Show History");
+		btnHistory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controllers.WindowController.showhistorywindow();
+			}
+		});
+		btnHistory.setBounds(232, 93, 158, 25);
+		desktopPane.add(btnHistory);
+		
+		JButton btnNewButton = new JButton("Clean History");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controllers.FileController.cleanHistory();
+			}
+		});
+		btnNewButton.setBounds(232, 150, 158, 25);
+		desktopPane.add(btnNewButton);
 
 		pack();
 	}// </editor-fold>
@@ -344,7 +365,8 @@ public class MainWindow extends javax.swing.JFrame {
 			{
 				JOptionPane.showMessageDialog(null, "This user is offline!");
 			}
-			startconversation();
+			else
+				startconversation();
 		}
 		
 	}
@@ -403,6 +425,4 @@ public class MainWindow extends javax.swing.JFrame {
 	private javax.swing.JScrollPane jScrollPane1;
 	private static javax.swing.JTable jTable1;
 	private javax.swing.JMenuBar menuBar;
-	// End of variables declaration//GEN-END:variables
-
 }

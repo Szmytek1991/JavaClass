@@ -6,6 +6,7 @@ public class WindowController {
 	static LoginWindow loginwindow;
 	static AboutBox aboutbox;
 	static AddFriend addfriend;
+	static History history;
 
 	public static void main(String[] args) 
 	{
@@ -47,6 +48,12 @@ public class WindowController {
 	{
 		addfriend = new AddFriend(loggedas);
 		addfriend.show(true);
+		
+	}
+	public static void showhistorywindow()
+	{
+		history = new History();
+		history.show(true);
 		
 	}
 	public static void closeloginwindow()
