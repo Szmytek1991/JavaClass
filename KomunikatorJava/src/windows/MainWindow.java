@@ -1,6 +1,7 @@
 package windows;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -31,7 +32,7 @@ public class MainWindow extends javax.swing.JFrame {
 	static List<String> friends = new ArrayList<String>();
 	static List<Integer> loggedin = new ArrayList<Integer>();
 	static List<String> conv = new ArrayList<String>();
-	static List<Integer> convstarted = new ArrayList<Integer>();
+	static int convstarted = 0;
 
 	/** Creates new form mainwindow */
 	public MainWindow(String loggedas) {
@@ -52,8 +53,6 @@ public class MainWindow extends javax.swing.JFrame {
 		int length;
 		length = friends.size();
 		for (int i = 0; i < length; i++) {
-			//System.out.println(friends.get(i));
-			convstarted.add(0);
 			jTable1.setValueAt(friends.get(i), i, 0);
 		}
 		length = loggedin.size();
@@ -66,8 +65,8 @@ public class MainWindow extends javax.swing.JFrame {
 
 		actthread = new Thread(new ActivityThread(), "thread1");
 		actthread.start();
-		//convthrd = new Thread(new ConversationThread(), "thread1");
-		//convthrd.start();
+		convthrd = new Thread(new threads.ConversationThread(), "thread1");
+		convthrd.start();
 	}
 
 	public static void activitythread() {
@@ -100,7 +99,7 @@ public class MainWindow extends javax.swing.JFrame {
 
 	public static void conversationthread() throws Exception {
 		while (worker1) {
-			/*String friendname;
+			String friendname;
 			String ip="";
 			java.sql.Connection conn = DbController.dbconnect();
 			conv = DbController.getconversation(conn, m_loggedas);
@@ -112,12 +111,9 @@ public class MainWindow extends javax.swing.JFrame {
 			}
 			int length = conv.size();
 			for (int i = 0; i < length; i++) {
-				if (!(conv.get(i) == ""))
-					if (convstarted.get(i) != 0) {
-						friendname = friends.get(i);
-						ip = conv.get(i);
-						TcpConnection.start(m_loggedas, ip);
-						convstarted.set(i, 1);
+				if ((conv.get(i) != null))
+					if (convstarted == 0) {
+						startconversation();
 						
 					}
 			}
@@ -127,7 +123,7 @@ public class MainWindow extends javax.swing.JFrame {
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}*/
+			}
 		}
 	}
 
@@ -251,8 +247,8 @@ public class MainWindow extends javax.swing.JFrame {
 		pack();
 	}// </editor-fold>
 	//GEN-END:initComponents
-	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {
-		
+	private static void startconversation() throws SocketException
+	{
 		workerconv=true;
 		String friendname;
 		String ip="";
@@ -323,6 +319,11 @@ public class MainWindow extends javax.swing.JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
+	}
+	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {
+		startconversation();
+		
 	}
 
 	private void formWindowClosing(java.awt.event.WindowEvent evt) {
