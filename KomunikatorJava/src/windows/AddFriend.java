@@ -2,6 +2,8 @@ package windows;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import controllers.DbController;
 import controllers.WindowController;
 
@@ -158,9 +160,18 @@ public class AddFriend extends javax.swing.JFrame {
 				e.printStackTrace();
 			}
 			if (test)
+			{
 				jLabel1.setText("Dodano do znajomych");
+
+				JOptionPane.showMessageDialog(null, "Dodano do znajomych");
+				
+			}
 			else
+			{
 				jLabel1.setText("Nie udalo sie dodac do znajomych");
+				JOptionPane.showMessageDialog(null, "Nie udalo sie dodac do znajomych");
+				
+			}
 		}
 		else
 			jLabel1.setText("Uzytkownik nie istnieje");

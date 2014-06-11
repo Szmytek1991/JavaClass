@@ -33,6 +33,7 @@ public class MainWindow extends javax.swing.JFrame {
 	static List<Integer> loggedin = new ArrayList<Integer>();
 	static List<String> conv = new ArrayList<String>();
 	static int convstarted = 0;
+	static String convfriend = "";
 
 	/** Creates new form mainwindow */
 	public MainWindow(String loggedas) {
@@ -112,10 +113,19 @@ public class MainWindow extends javax.swing.JFrame {
 			int length = conv.size();
 			for (int i = 0; i < length; i++) {
 				if ((conv.get(i) != null))
+				{
+
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					if (convstarted == 0) {
 						startconversation();
 						
 					}
+				}
 			}
 
 			try {
@@ -292,7 +302,8 @@ public class MainWindow extends javax.swing.JFrame {
 		    	             thisIp=ia;
 		    	         }    
 		    	} 
-				DbController.startconv(m_loggedas, thisIp.getHostAddress());
+		    	convfriend = friends.get(jTable1.getSelectedRow());
+				DbController.startconv(convfriend, thisIp.getHostAddress());
 
 	            (new Thread() {
 	                @Override
@@ -363,8 +374,9 @@ public class MainWindow extends javax.swing.JFrame {
 	public static void closeconv()
 	{
 
-		DbController.startconv(m_loggedas, null);
+		DbController.startconv(convfriend, null);
 		workerconv = false;
+		convstarted = 0;
 	}
 	//GEN-BEGIN:variables
 	// Variables declaration - do not modify
