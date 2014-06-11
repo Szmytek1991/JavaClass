@@ -311,6 +311,7 @@ public class MainWindow extends javax.swing.JFrame {
 							}
 		                }
 		            }).start();
+		            convstarted = 1;
 			}
 			else
 			{
@@ -339,6 +340,7 @@ public class MainWindow extends javax.swing.JFrame {
 						}
 	                }
 	            }).start();
+	            convstarted = 1;
 				//TcpConnection.start(m_loggedas,"");
 				
 			}

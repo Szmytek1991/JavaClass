@@ -1,17 +1,19 @@
 package models;
 
  import java.io.IOException;
- import java.io.ObjectInputStream;
- import java.io.ObjectOutputStream;
- import java.io.PrintStream;
- import java.net.InetAddress;
- import java.net.ServerSocket;
- import java.net.Socket;
- import java.text.DecimalFormat;
- import java.util.Calendar;
- import java.util.Vector;
- import java.util.logging.Level;
- import java.util.logging.Logger;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintStream;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.Enumeration;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
  
  public class Server
    extends Thread
@@ -48,7 +50,16 @@ package models;
      ServerSocket ss = null;
      try
      {
-       ss = new ServerSocket(port);
+    	 InetAddress thisIp = null;
+			NetworkInterface ni = NetworkInterface.getByName("wlan0");    
+	    	Enumeration<InetAddress> inetAddresses =  ni.getInetAddresses();
+	    	while(inetAddresses.hasMoreElements()) {  
+	    	         InetAddress ia = inetAddresses.nextElement();  
+	    	         if(!ia.isLinkLocalAddress()) {  
+	    	             thisIp=ia;
+	    	         }    
+	    	} 
+       ss = new ServerSocket(port, 0,thisIp);
        try
        {
          for (;;)

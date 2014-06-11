@@ -5,3 +5,485 @@ Server set at port: 6000
 	test1 (127.0.0.1) joined the channel
 17:16:42 - test1:
 	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:47:22 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:47:30 - null:
+	test3 (192.168.0.17) joined the channel
+17:47:30 - null:
+	test3 (192.168.0.17) joined the channel
+17:47:35 - test1:
+	test
+17:47:35 - test1:
+	test
+17:47:38 - test3:
+	test
+17:47:38 - test3:
+	test
+17:47:39 - test3:
+	<-- has left a chat -->
+17:47:39 - test3:
+	<-- has left a chat -->
+17:47:39 - null:
+	test3 dropped
+17:47:40 - test1:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:47:47 - null:
+	test3 (127.0.0.1) joined the channel
+17:47:48 - test3:
+	<-- has left a chat -->
+msgmsgmsgmsgYour internal IP is : 192.168.0.17
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+msg17:47:54 - null:
+	test3 (127.0.0.1) joined the channel
+Server set at port: 6000
+msg17:47:54 - null:
+	test1 (127.0.0.1) joined the channel
+17:47:54 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+msg17:48:00 - null:
+	test1 (192.168.0.17) joined the channel
+17:48:00 - null:
+	test1 (192.168.0.17) joined the channel
+17:48:00 - null:
+	test1 (192.168.0.17) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+msg17:48:02 - null:
+	test3 (192.168.0.17) joined the channel
+17:48:02 - null:
+	test3 (192.168.0.17) joined the channel
+17:48:02 - null:
+	test3 (192.168.0.17) joined the channel
+17:48:06 - test1:
+	test
+msg17:48:06 - test1:
+	test
+msg17:48:08 - test1:
+	<-- has left a chat -->
+17:48:08 - test1:
+	<-- has left a chat -->
+msg17:48:09 - null:
+	test1 dropped
+msg17:48:10 - test1:
+	<-- has left a chat -->
+msgYour internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:48:15 - null:
+	test3 (127.0.0.1) joined the channel
+msgYour internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+msg17:48:20 - null:
+	test1 (192.168.0.17) joined the channel
+17:48:20 - null:
+	test1 (192.168.0.17) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+msg17:48:21 - null:
+	test1 (192.168.0.17) joined the channel
+17:48:21 - null:
+	test1 (192.168.0.17) joined the channel
+17:48:21 - null:
+	test1 (192.168.0.17) joined the channel
+msg17:48:29 - test1:
+	<-- has left a chat -->
+17:48:29 - test1:
+	<-- has left a chat -->
+17:48:29 - test1:
+	<-- has left a chat -->
+msg17:48:30 - null:
+	test1 dropped
+17:48:30 - null:
+	test1 dropped
+msg17:48:31 - test1:
+	<-- has left a chat -->
+17:48:31 - test1:
+	<-- has left a chat -->
+msg17:48:32 - test3:
+	<-- has left a chat -->
+msgYour internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+msg17:48:37 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+msg17:48:44 - null:
+	test3 (192.168.0.17) joined the channel
+17:48:44 - null:
+	test3 (192.168.0.17) joined the channel
+msg17:48:47 - test3:
+	<-- has left a chat -->
+17:48:47 - test3:
+	<-- has left a chat -->
+msg17:48:47 - null:
+	test3 dropped
+msg17:48:49 - test1:
+	<-- has left a chat -->
+msgmsgmsgYour internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:49:34 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:49:40 - null:
+	test3 (192.168.0.17) joined the channel
+17:49:40 - null:
+	test3 (192.168.0.17) joined the channel
+17:49:45 - test3:
+	<-- has left a chat -->
+17:49:45 - test3:
+	<-- has left a chat -->
+17:49:46 - null:
+	test3 dropped
+17:49:46 - test1:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:50:06 - null:
+	test3 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:50:11 - null:
+	test1 (192.168.0.17) joined the channel
+17:50:11 - null:
+	test1 (192.168.0.17) joined the channel
+17:50:15 - test1:
+	<-- has left a chat -->
+17:50:15 - test1:
+	<-- has left a chat -->
+17:50:15 - null:
+	test1 dropped
+17:50:16 - test3:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:51:27 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:51:35 - null:
+	test3 (192.168.0.17) joined the channel
+17:51:35 - null:
+	test3 (192.168.0.17) joined the channel
+17:51:41 - test1:
+	<-- has left a chat -->
+17:51:41 - test1:
+	<-- has left a chat -->
+17:51:41 - null:
+	test1 dropped
+17:51:49 - test3:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:51:58 - null:
+	test3 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:52:04 - null:
+	test1 (192.168.0.17) joined the channel
+17:52:04 - null:
+	test1 (192.168.0.17) joined the channel
+17:52:18 - test1:
+	test
+17:52:18 - test1:
+	test
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:52:19 - null:
+	test1 (192.168.0.17) joined the channel
+17:52:19 - null:
+	test1 (192.168.0.17) joined the channel
+17:52:19 - null:
+	test1 (192.168.0.17) joined the channel
+17:52:26 - test3:
+	test
+17:52:28 - test3:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:52:34 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:52:43 - null:
+	test3 (192.168.0.17) joined the channel
+17:52:43 - null:
+	test3 (192.168.0.17) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:52:44 - null:
+	test3 (192.168.0.17) joined the channel
+17:52:44 - null:
+	test3 (192.168.0.17) joined the channel
+17:52:44 - null:
+	test3 (192.168.0.17) joined the channel
+17:52:50 - test3:
+	<-- has left a chat -->
+17:52:50 - null:
+	test3 dropped
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:53:00 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:00 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:00 - null:
+	test1 dropped
+17:53:00 - null:
+	test1 dropped
+17:53:00 - null:
+	test3 dropped
+17:53:07 - test3:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:53:11 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:53:21 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:21 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:25 - test3:
+	test
+17:53:25 - test3:
+	test
+17:53:29 - test1:
+	test
+17:53:29 - test1:
+	test
+17:53:33 - test3:
+	tst
+17:53:33 - test3:
+	tst
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:53:36 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:36 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:36 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:50 - test3:
+	<-- has left a chat -->
+17:53:50 - null:
+	test3 dropped
+17:53:52 - null:
+	test3 dropped
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:53:52 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:52 - null:
+	test3 (192.168.0.17) joined the channel
+17:53:54 - test3:
+	<-- has left a chat -->
+17:53:54 - test3:
+	<-- has left a chat -->
+17:53:54 - null:
+	test3 dropped
+17:53:55 - test1:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:55:13 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:55:22 - null:
+	test3 (192.168.0.17) joined the channel
+17:55:22 - null:
+	test3 (192.168.0.17) joined the channel
+17:55:26 - test1:
+	<-- has left a chat -->
+17:55:26 - test1:
+	<-- has left a chat -->
+17:55:27 - null:
+	test1 dropped
+17:55:29 - test3:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:55:35 - null:
+	test3 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:55:40 - null:
+	test1 (192.168.0.17) joined the channel
+17:55:40 - null:
+	test1 (192.168.0.17) joined the channel
+17:55:45 - test1:
+	test
+17:55:45 - test1:
+	test
+17:55:48 - test3:
+	test
+17:55:48 - test3:
+	test
+17:55:51 - test1:
+	test
+17:55:51 - test1:
+	test
+17:55:54 - test3:
+	dadas
+17:55:54 - test3:
+	dadas
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:55:56 - null:
+	test1 (192.168.0.17) joined the channel
+17:55:56 - null:
+	test1 (192.168.0.17) joined the channel
+17:55:56 - null:
+	test1 dropped
+17:55:57 - test1:
+	addaad
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:56:12 - null:
+	test1 (192.168.0.17) joined the channel
+17:56:12 - null:
+	test1 (192.168.0.17) joined the channel
+17:56:13 - test1:
+	<-- has left a chat -->
+17:56:13 - test1:
+	<-- has left a chat -->
+17:56:13 - null:
+	test1 dropped
+17:56:17 - test3:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:56:25 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:56:29 - null:
+	test3 (192.168.0.17) joined the channel
+17:56:29 - null:
+	test3 (192.168.0.17) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:56:31 - null:
+	test3 (192.168.0.17) joined the channel
+17:56:31 - null:
+	test3 (192.168.0.17) joined the channel
+17:56:31 - null:
+	test3 (192.168.0.17) joined the channel
+17:56:36 - test3:
+	<-- has left a chat -->
+17:56:37 - null:
+	test3 dropped
+17:56:38 - test1:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:58:43 - null:
+	test1 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:58:50 - null:
+	test3 (192.168.0.17) joined the channel
+17:58:50 - null:
+	test3 (192.168.0.17) joined the channel
+17:58:53 - test3:
+	test
+17:58:53 - test3:
+	test
+17:58:59 - test1:
+	<-- has left a chat -->
+17:58:59 - test1:
+	<-- has left a chat -->
+17:59:00 - null:
+	test1 dropped
+17:59:04 - test3:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:59:09 - null:
+	test3 (127.0.0.1) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+17:59:15 - null:
+	test1 (192.168.0.17) joined the channel
+17:59:15 - null:
+	test1 (192.168.0.17) joined the channel
+17:59:24 - test3:
+	test
+17:59:24 - test3:
+	test
+17:59:26 - test1:
+	test
+17:59:26 - test1:
+	test
+17:59:29 - test3:
+	fdsfsf
+17:59:29 - test3:
+	fdsfsf
+17:59:31 - test1:
+	dsasdadda
+17:59:31 - test1:
+	dsasdadda
+17:59:57 - test3:
+	<-- has left a chat -->
+17:59:57 - test3:
+	<-- has left a chat -->
+17:59:57 - null:
+	test3 dropped
+17:59:58 - test1:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+18:04:10 - null:
+	test1 (192.168.0.17) joined the channel
+18:04:18 - test1:
+	dcsaf
+18:05:16 - test1:
+	<-- has left a chat -->
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+18:05:42 - null:
+	test1 (192.168.0.17) joined the channel
+Your internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+18:05:48 - null:
+	test3 (192.168.0.17) joined the channel
+18:05:48 - null:
+	test3 (192.168.0.17) joined the channel
+18:05:52 - test3:
+	<-- has left a chat -->
+18:05:52 - test3:
+	<-- has left a chat -->
+18:05:52 - null:
+	test3 dropped
+18:05:53 - test1:
+	<-- has left a chat -->

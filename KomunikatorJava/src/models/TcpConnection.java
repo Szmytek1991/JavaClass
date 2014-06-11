@@ -95,7 +95,16 @@ public class TcpConnection {
                 }
             }).start();
             Thread.sleep(1000);
-            s = new Socket("localhost", port);
+            InetAddress thisIp = null;
+			NetworkInterface ni = NetworkInterface.getByName("wlan0");    
+	    	Enumeration<InetAddress> inetAddresses =  ni.getInetAddresses();
+	    	while(inetAddresses.hasMoreElements()) {  
+	    	         InetAddress ia = inetAddresses.nextElement();  
+	    	         if(!ia.isLinkLocalAddress()) {  
+	    	             thisIp=ia;
+	    	         }    
+	    	} 
+            s = new Socket(thisIp.getHostAddress(), port);
             log("Server set at port: " + port);
         } 
         else 
@@ -118,8 +127,8 @@ public class TcpConnection {
                 Toolkit.getDefaultToolkit().beep();
             } catch (Exception ex) {
                 //Logger.getLogger(TcpConnection.class.getName()).log(Level.SEVERE, null, ex);
-                MainWindow.closeconv();
-                frame.dispose();
+                //MainWindow.closeconv();
+                //frame.dispose();
                 //System.exit(0);
             }
         }
