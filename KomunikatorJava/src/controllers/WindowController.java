@@ -44,12 +44,14 @@ public class WindowController {
 		aboutbox = new AboutBox(loggedas);
 		aboutbox.show(true);
 	}
+	@SuppressWarnings("deprecation")
 	public static void showaddfriendwindow(String loggedas)
 	{
 		addfriend = new AddFriend(loggedas);
 		addfriend.show(true);
 		
 	}
+	@SuppressWarnings("deprecation")
 	public static void showhistorywindow()
 	{
 		history = new History();

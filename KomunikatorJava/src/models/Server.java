@@ -3,7 +3,6 @@ package models;
  import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.ServerSocket;
@@ -18,11 +17,16 @@ import java.util.logging.Logger;
  public class Server
    extends Thread
  {
-   private static Vector<Socket> sockets = new Vector(3);
-   private static Vector<String> name = new Vector(3);
-   private static Vector<String> ip = new Vector(3);
-   private static Vector<ObjectOutputStream> out = new Vector(3);
-   private static Vector<ObjectInputStream> in = new Vector(3);
+   @SuppressWarnings({ "unchecked", "rawtypes" })
+private static Vector<Socket> sockets = new Vector(3);
+   @SuppressWarnings({ "rawtypes", "unchecked" })
+private static Vector<String> name = new Vector(3);
+   @SuppressWarnings({ "unchecked", "rawtypes" })
+private static Vector<String> ip = new Vector(3);
+   @SuppressWarnings({ "rawtypes", "unchecked" })
+private static Vector<ObjectOutputStream> out = new Vector(3);
+   @SuppressWarnings({ "unchecked", "rawtypes" })
+private static Vector<ObjectInputStream> in = new Vector(3);
    private static int port;
    private int ID;
    

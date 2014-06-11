@@ -14,14 +14,6 @@ public class DbController
 
 		public static boolean createuser (Connection conn, String login, String password)
 		{
-			Thread watek = new Thread(new Runnable(){
-
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-					
-				}});
-			//watek.start();
 			
 
 			String query = " insert into 8306_traffii1.User (Login, Password, LoggedIn)"

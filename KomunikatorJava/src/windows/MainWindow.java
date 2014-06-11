@@ -6,20 +6,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-
-import javax.swing.DebugGraphics;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.TableModel;
 
 import threads.ActivityThread;
 import models.TcpConnection;
 
-import com.mysql.jdbc.Connection;
-
 import controllers.DbController;
 import controllers.WindowController;
+
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -104,8 +100,6 @@ public class MainWindow extends javax.swing.JFrame {
 
 	public static void conversationthread() throws Exception {
 		while (worker1) {
-			String friendname;
-			String ip="";
 			java.sql.Connection conn = DbController.dbconnect();
 			conv = DbController.getconversation(conn, m_loggedas);
 			try {
@@ -172,9 +166,11 @@ public class MainWindow extends javax.swing.JFrame {
 						{ null, null }, { null, null }, { null, null },
 						{ null, null }, { null, null } }, new String[] {
 						"User", "Status" }) {
+			@SuppressWarnings("rawtypes")
 			Class[] types = new Class[] { java.lang.String.class,
 					java.lang.String.class };
 
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			public Class getColumnClass(int columnIndex) {
 				return types[columnIndex];
 			}
@@ -282,7 +278,6 @@ public class MainWindow extends javax.swing.JFrame {
 	private static void startconversation() throws SocketException
 	{
 		workerconv=true;
-		String friendname;
 		String ip="";
 		java.sql.Connection conn = DbController.dbconnect();
 		conv = DbController.getconversation(conn, m_loggedas);
@@ -296,7 +291,6 @@ public class MainWindow extends javax.swing.JFrame {
 		for (int i = 0; i < length; i++) {
 			if (!(conv.get(i) == null))
 			{
-					friendname = friends.get(i);
 					ip = conv.get(i);
 					m_ip = ip;
 		            (new Thread() {

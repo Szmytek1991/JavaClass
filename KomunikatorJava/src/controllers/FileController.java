@@ -33,6 +33,7 @@ public class FileController {
 			in = new Scanner(file);
 		      while(in.hasNext())
 		    	  msg += in.nextLine()+"\n";
+		      in.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

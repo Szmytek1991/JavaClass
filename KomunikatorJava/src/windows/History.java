@@ -5,12 +5,10 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.SwingConstants;
-import javax.swing.DropMode;
 import javax.swing.JTextArea;
 
+@SuppressWarnings("serial")
 public class History extends JFrame {
 
 	private JPanel contentPane;

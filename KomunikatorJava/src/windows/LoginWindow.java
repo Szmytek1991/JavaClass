@@ -153,11 +153,13 @@ public class LoginWindow extends javax.swing.JFrame {
 		// TODO add your handling code here:
 	}
 
+	@SuppressWarnings("deprecation")
 	private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {
 		if (jPasswordField1.getText().isEmpty())
 			jPasswordField1.setText("Password");
 	}
 
+	@SuppressWarnings("deprecation")
 	private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {
 		if (jPasswordField1.getText().equals("Password"))
 			jPasswordField1.setText("");
@@ -181,6 +183,7 @@ public class LoginWindow extends javax.swing.JFrame {
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 
 		String loginTB = jTextField1.getText();
+		@SuppressWarnings("deprecation")
 		String passwordTB = jPasswordField1.getText();
 
 		Connection conn = DbController.dbconnect();

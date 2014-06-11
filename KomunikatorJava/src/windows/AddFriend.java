@@ -17,6 +17,7 @@ import controllers.WindowController;
  *
  * @author  __USER__
  */
+@SuppressWarnings("serial")
 public class AddFriend extends javax.swing.JFrame {
 	String m_loggedas;
 
