@@ -1,0 +1,7 @@
+msgmsgmsgmsgmsgYour internal IP is : 192.168.0.17
+Your external IP is : 89.78.162.7
+Server set at port: 6000
+17:16:36 - null:
+	test1 (127.0.0.1) joined the channel
+17:16:42 - test1:
+	<-- has left a chat -->
