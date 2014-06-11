@@ -2,6 +2,8 @@ package windows;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import controllers.DbController;
 import controllers.WindowController;
 
@@ -220,9 +222,17 @@ public class CreateUser extends javax.swing.JFrame {
 
 		Connection conn = DbController.dbconnect();
 		if (DbController.createuser(conn, loginTB, passwordTB))
+		{
 			jLabel1.setText("User Add Success");
+			JOptionPane.showMessageDialog(null, "User Add Success");
+			
+		}
 		else
+		{
 			jLabel1.setText("User Add Failed");
+			JOptionPane.showMessageDialog(null, "User Add Failed");
+			
+		}
 
 		try {
 			conn.close();

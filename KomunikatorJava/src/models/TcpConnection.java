@@ -140,6 +140,7 @@ public class TcpConnection {
 
     private static synchronized void log(String msg) {
         textArea.append(msg + "\n");
+        controllers.FileController.saveToFile(msg + "\n");
         textArea.setCaretPosition(textArea.getText().length());
     }
 

@@ -8,6 +8,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 import javax.swing.DebugGraphics;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
@@ -333,7 +334,18 @@ public class MainWindow extends javax.swing.JFrame {
 	
 	}
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {
-		startconversation();
+		if(convstarted==1)
+		{
+			JOptionPane.showMessageDialog(null, "Conversation is running, close current conversation first!!");
+		}
+		else
+		{
+			if(loggedin.get(jTable1.getSelectedRow())==0)
+			{
+				JOptionPane.showMessageDialog(null, "This user is offline!");
+			}
+			startconversation();
+		}
 		
 	}
 
