@@ -48,13 +48,13 @@ private static Vector<ObjectInputStream> in = new Vector(3);
      }
    }
    
-   public static void start(String[] args)
+   public static void start(String a_port)
    {
-     port = Integer.parseInt(args[0]);
+     port = Integer.parseInt(a_port);
      ServerSocket ss = null;
      try
      {
-    	 InetAddress thisIp = null;
+    	 	InetAddress thisIp = null;
 			NetworkInterface ni = NetworkInterface.getByName("wlan0");    
 	    	Enumeration<InetAddress> inetAddresses =  ni.getInetAddresses();
 	    	while(inetAddresses.hasMoreElements()) {  
@@ -88,10 +88,10 @@ private static Vector<ObjectInputStream> in = new Vector(3);
      try
      {
        name.add(((ObjectInputStream)in.get(this.ID)).readObject().toString());
-       sendMsg(null, (String)name.get(this.ID) + " (" + (String)ip.get(this.ID) + ") joined the channel");
-       for (;;)
+       sendMessage(null, (String)name.get(this.ID) + " (" + (String)ip.get(this.ID) + ") joined conversation");
+       while(true)
        {
-         sendMsg((String)name.get(this.ID), ((ObjectInputStream)in.get(this.ID)).readObject().toString());
+         sendMessage((String)name.get(this.ID), ((ObjectInputStream)in.get(this.ID)).readObject().toString());
        }
      }
      catch (Exception ex)
@@ -108,16 +108,15 @@ private static Vector<ObjectInputStream> in = new Vector(3);
        sockets.remove(this.ID);
        out.remove(this.ID);
        in.remove(this.ID);
-       sendMsg(null, (String)name.remove(this.ID) + " dropped");
+       sendMessage(null, (String)name.remove(this.ID) + " left");
      }
    }
    
-   private static synchronized void sendMsg(String name, String msg)
+   private static synchronized void sendMessage(String name, String msg)
    {
      Calendar c = Calendar.getInstance();
      DecimalFormat df = new DecimalFormat("00");
      String time = df.format(c.get(11)) + ":" + df.format(c.get(12)) + ":" + df.format(c.get(13));
-     
  
      System.out.println(time + " - " + name + ": " + msg);
      msg = time + " - " + name + ":\n\t" + msg;

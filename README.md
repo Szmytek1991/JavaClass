@@ -1,4 +1,4 @@
-Komunikator Sieciowy - uwzględniający przesyłanie plików, otwieranie plików graficznych, przechowywanie informacji w bazie danych, logowanie do programu.
+Komunikator Sieciowy - uwzględniający logowanie do bazy danych, zapis odczyt historii, wieloplatformowy ( Windows - Linux )
 
 Zajecia 2  - 20.03.2014 - 1pkt
 Zajecia 3  - 27.03.2014 - 1pkt
@@ -10,7 +10,7 @@ Zajecia 8  - 08.05.2014 - sesja kół
 Zajęcia 9  - 15.05.2014 - juwenalia
 Zajęcia 10 - 22.05.2014 - wyjazd koła
 Zajęcia 11 - 29.05.2014 - 4 pkt ( max )
-Zajecia 12 - 05.06.2014 - 
+Zajecia 12 - 05.06.2014 - 0.5 pkt
 Zajecia 13 - 12.06.2014 - 
 
 
@@ -21,20 +21,18 @@ Zajecia 13 - 12.06.2014 -
 - okno logowania ( zrobione na trzecie zajecia )
 - okno aboutbox ( zrobione na jedenaste zajecia )
 - okno dodawania znajomych ( zrobione na jedenaste zajecia )
+- okno historii ( zrobione na dwunaste zajecia )
 
 2. Zapis/Odczyt plików
-- zapis/odczyt historii lokalnie
-- zapis/odczyt przesłanych plików graficznych
-
+- zapis historii ( zrobione na dwunaste zajecia )
+- odczyt historii ( zrobione na dwunaste zajecia )
+- czyszczenie historii ( zrobione na dwunaste zajecia )
 
 3. Współbierzność
 - monitorowanie aktywnosci uzytkowników ( zrobione na piate zajecia )
 - oczekiwanie na wiadomosc ( zrobione na jedenaste zajecia )
 - podtrzymywanie okien i serwera na osobnych watkach ( zrobione na jedenaste zajecia )
-- pasek postepu wysylania pliku
-- wysyłanie/odbieranie pliku
-- oczekiwanie na konwersacje
-
+- oczekiwanie na konwersacje ( zrobione na trzynaste zajecia )
 
 4. Bazy Danych
 - zapis danych uzytkowników ( zrobione na drugie zajecia )
@@ -42,14 +40,11 @@ Zajecia 13 - 12.06.2014 -
 - sprawdzanie listy zalogowanych uzytkowników ( zrobione na piate zajecia )
 - odczyt listy "znajomych" ( zrobione na czwarte zajecia )
 - dodawanie znajomych ( zrobione na jedenaste zajecia )
-- przetwarzanie nowych konwersacji
+- przetwarzanie nowych konwersacji ( zrobione na trzynaste zajecia )
 
 5. Komunikacja sieciowa
 - zastosowanie protokołu TCP ( zrobione na jedenaste zajecia )
-- przesylanie pliku graficznego
 - przesyłanie wiadomości miedzy uzytkownikami przez protokół TCP ( zrobione na jedenaste zajecia )
-
 
 6. Dodatkowe
 - skanowanie interfejsow sieciowych 
-- ikona tray

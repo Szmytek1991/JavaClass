@@ -36,13 +36,11 @@ public class TcpConnection {
     private static Socket s = null;
 
     public static void start(String username, String ip) throws Exception {
-        // get user name, IP and port
-        String title = "Java communicator";
+        String title = "Network Communicator : " + username;
         final String name = username;
         final int port = 6000;
         String IP = ip;
 
-        // create gui
         final JFrame frame = new JFrame(title);
         JPanel contentPane = new JPanel(new BorderLayout());
         textArea = new JTextArea();
@@ -54,7 +52,7 @@ public class TcpConnection {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (connected) {
-                    sendMsg(textField.getText());
+                    sendMessage(textField.getText());
                     textField.setText("");
                 }
             }
@@ -67,33 +65,31 @@ public class TcpConnection {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                sendMsg("<-- has left a chat -->");
+                sendMessage("|||left a chat|||");
                 MainWindow.closeconv();
                 if (s != null) {
                     try {
                         s.close();
                         
                     } catch (IOException ex) {
-                        //Logger.getLogger(TcpConnection.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 frame.dispose();
-                //System.exit(0);
             }
         });
         frame.setSize(300, 200);
         frame.setVisible(true);
         showIPs();
 
-        // create sockets
         if (IP.equals("")) {
             (new Thread() {
                 @Override
                 public void run() {
-                    Server.start(new String[] {"" + port});
+                    Server.start(Integer.toString(port));
                 }
             }).start();
             Thread.sleep(1000);
+            
             InetAddress thisIp = null;
 			NetworkInterface ni = NetworkInterface.getByName("wlan0");    
 	    	Enumeration<InetAddress> inetAddresses =  ni.getInetAddresses();
@@ -103,8 +99,9 @@ public class TcpConnection {
 	    	             thisIp=ia;
 	    	         }    
 	    	} 
+	    	
             s = new Socket(thisIp.getHostAddress(), port);
-            log("Server set at port: " + port);
+            logToScreen("Serwer was setted at port : " + port);
         } 
         else 
         {
@@ -113,28 +110,22 @@ public class TcpConnection {
         connected = true;
         textField.requestFocusInWindow();
 
-        // create streams
         out = new ObjectOutputStream(s.getOutputStream());
         out.flush();
-        sendMsg(name);
+        sendMessage(name);
         in = new ObjectInputStream(s.getInputStream());
 
-        // wait for messages
         while (MainWindow.workerconv) {
             try {
-                log(in.readObject().toString());
+                logToScreen(in.readObject().toString());
                 Toolkit.getDefaultToolkit().beep();
             } catch (Exception ex) {
-                //Logger.getLogger(TcpConnection.class.getName()).log(Level.SEVERE, null, ex);
-                //MainWindow.closeconv();
-                //frame.dispose();
-                //System.exit(0);
             }
         }
 
     }
 
-    private static void sendMsg(String msg) {
+    private static void sendMessage(String msg) {
         if (out == null) {
             return;
         }
@@ -146,7 +137,7 @@ public class TcpConnection {
         }
     }
 
-    private static synchronized void log(String msg) {
+    private static synchronized void logToScreen(String msg) {
         textArea.append(msg + "\n");
         controllers.FileController.saveToFile(msg + "\n");
         textArea.setCaretPosition(textArea.getText().length());
@@ -159,12 +150,11 @@ public class TcpConnection {
         	while(inetAddresses.hasMoreElements()) {  
         	         InetAddress ia = inetAddresses.nextElement();  
         	         if(!ia.isLinkLocalAddress()) {  
-        	             log("Your internal IP is : " + ia.getHostAddress());
+        	             logToScreen("Your internal IP is : " + ia.getHostAddress());
         	         }    
         	}  
         	
-            //InetAddress thisIp = InetAddress.getLocalHost();
-            log("Your external IP is : " + getExternalIP());
+            logToScreen("Your external IP is : " + getExternalIP());
         } catch (Exception ex) {
             Logger.getLogger(TcpConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
