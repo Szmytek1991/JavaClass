@@ -13,6 +13,8 @@ import java.util.Enumeration;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import windows.TcpConnection;
  
  public class Server
    extends Thread
@@ -88,7 +90,7 @@ private static Vector<ObjectInputStream> in = new Vector(3);
      try
      {
        name.add(((ObjectInputStream)in.get(this.ID)).readObject().toString());
-       sendMessage(null, (String)name.get(this.ID) + " (" + (String)ip.get(this.ID) + ") joined conversation");
+       sendMessage(null, (String)name.get(this.ID) + " joined conversation");
        while(true)
        {
          sendMessage((String)name.get(this.ID), ((ObjectInputStream)in.get(this.ID)).readObject().toString());
@@ -117,9 +119,12 @@ private static Vector<ObjectInputStream> in = new Vector(3);
      Calendar c = Calendar.getInstance();
      DecimalFormat df = new DecimalFormat("00");
      String time = df.format(c.get(11)) + ":" + df.format(c.get(12)) + ":" + df.format(c.get(13));
- 
-     System.out.println(time + " - " + name + ": " + msg);
-     msg = time + " - " + name + ":\n\t" + msg;
+     if(name==null)
+     {
+    	 
+    	 name = "server";
+     }
+     msg = time + "\n " + name + ":\n" + msg;
      for (int i = 0; i < out.size(); i++) {
        try
        {

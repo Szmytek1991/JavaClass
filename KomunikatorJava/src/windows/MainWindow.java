@@ -9,8 +9,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import threads.ActivityThread;
-import models.TcpConnection;
-
 import controllers.DbController;
 import controllers.WindowController;
 
